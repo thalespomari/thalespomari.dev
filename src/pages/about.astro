@@ -2,15 +2,15 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const skills = [
-  { category: "Data", items: ["Apache Spark", "Delta Lake", "PySpark", "SQL", "dbt", "Airflow"] },
-  { category: "AI / ML", items: ["HuggingFace", "RAG", "LLMs", "FastAPI", "MLflow", "Python"] },
-  { category: "Cloud & Infra", items: ["AWS (EC2, S3, Lambda)", "Docker", "systemd", "Redis", "Git"] },
+  { category: "Data", items: ["Apache Spark", "Delta Lake", "PySpark", "SQL", "Scala", "Airflow"] },
+  { category: "AI / ML", items: ["DeepLearning", "RAG", "LLMs", "HuggingFace", "FastAPI", "Python"] },
+  { category: "Cloud & Infra", items: ["AWS", "GCP", "Docker", "Redis", "Git"] },
   { category: "Practices", items: ["MLOps", "DataOps", "REST APIs", "Async Processing", "Distributed Systems"] },
 ];
 
 const companies = [
   { name: "Equifax / Boa Vista Serviços", domain: "Credit Scoring" },
-  { name: "TIM (via Dell)", domain: "Telecom" },
+  { name: "TIM", domain: "Telecom" },
   { name: "Vivo", domain: "Telecom" },
   { name: "GPA", domain: "Food Retail" },
   { name: "Prudential", domain: "Life Insurance" },
@@ -37,22 +37,28 @@ const companies = [
       </div>
       <div class="bio-content">
         <p>
-          I'm a Data Engineer and MLOps specialist with experience building data infrastructure
-          and AI systems that solve real business problems across multiple industries.
+          I started my career as a researcher, publishing a
+          <a href="https://ieeexplore.ieee.org/document/8451227" target="_blank" rel="noopener">paper at IEEE ICIP (International Conference on Image Processing)</a>
+          before finding my path in data. I later grounded that foundation with a
+          <strong>Postgraduate Program in Data Science</strong>.
         </p>
         <p>
-          My background spans credit scoring, telecom, food retail, and life insurance — giving me
-          a broad perspective on how data challenges vary by domain and scale.
+          Today I'm a Data Engineer and MLOps specialist, building data infrastructure
+          and AI systems that solve real business problems at scale. My work spans
+          credit scoring, telecom, food retail, and life insurance, which gives me a broad
+          perspective on how data challenges vary by domain and budget.
+        </p>
+        <p>
+          My current stack centers on <strong>Apache Spark + Delta Lake</strong> for large-scale
+          data processing, <strong>AWS</strong> as my main cloud platform, and
+          <strong>FastAPI + HuggingFace</strong> for AI-powered services.
         </p>
         <p>
           My signature skill is <strong>learning fast and finding the right technology fit</strong>
-          for the time and budget of each problem. I don't over-engineer — I build what's needed,
-          when it's needed, at the right cost.
-        </p>
-        <p>
-          Today I work primarily with <strong>Apache Spark + Delta Lake</strong> for large-scale
-          data processing, <strong>AWS</strong> as my main cloud platform, and
-          <strong>FastAPI + HuggingFace</strong> for building AI-powered services.
+          for the time and budget of each problem. I don't over-engineer. I build what's needed,
+          when it's needed, at the right cost. As a tech leader, I also invest in the people side:
+          communicating clearly across teams, unblocking colleagues, and making sure technical
+          decisions are understood by everyone involved, not just engineers.
         </p>
       </div>
     </div>
@@ -117,13 +123,24 @@ const companies = [
     <div class="container" style="text-align:center;">
       <h2>Let's build something.</h2>
       <p style="color:var(--muted);margin: 1rem auto 2rem;">Available for data engineering and AI infrastructure projects.</p>
-      <a href="mailto:thales@thalespomari.dev" class="btn btn-accent">Get in Touch →</a>
+      <a href="mailto:hello@thalespomari.dev" class="btn btn-accent">Get in Touch →</a>
+      <p style="color:var(--muted);font-family:var(--font-mono);font-size:0.8rem;margin-top:1.5rem;">São Paulo, BR</p>
     </div>
   </section>
 
 </BaseLayout>
 
 <style>
+  .bio-content a {
+    color: var(--accent);
+    text-decoration: underline;
+    font-weight: 500;
+  }
+
+  .bio-content a:hover {
+    color: var(--accent);
+  }
+
   .subtitle {
     font-family: var(--font-mono);
     font-size: 1rem;

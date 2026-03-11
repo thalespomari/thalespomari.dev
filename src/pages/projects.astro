@@ -4,14 +4,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const projects = [
   {
     id: "01",
-    name: "Uirapuru Orchestrator",
+    name: "AI Orchestrator",
     tagline: "Distributed async job processing with RAG pipeline",
-    description: `A distributed job processing orchestrator that manages jobs and workers asynchronously.
-      It exposes a REST API built with FastAPI and uses Redis as a state store and job queue.
-      Workers process PDF documents using a RAG (Retrieval Augmented Generation) pipeline —
-      retrieving jobs, executing the pipeline, and reporting results back to the orchestrator.
-      Execution is containerized via Docker and controlled by a systemd service on EC2,
-      which runs automatically at each boot.`,
+    description: `This project started from a research study: a Data Scientist tuned the model and found
+      hyperparameters that worked well. My job was to take that study and build it into a product.
+      The result is a distributed orchestrator that manages jobs and workers asynchronously through
+      a REST API built with FastAPI, using Redis as the state store and job queue. Workers process
+      PDF documents through a RAG pipeline and report results back to the orchestrator.
+      Everything runs in Docker, managed by a systemd service on AWS EC2 that starts automatically on boot.
+      Next step is a monitoring panel so anyone on the team can check job executions, statuses,
+      and resource usage without touching the API directly.`,
     status: "In Progress",
     tags: ["FastAPI", "Redis", "RAG", "Docker", "EC2", "Python", "AWS"],
     highlights: [
@@ -135,7 +137,7 @@ const projects = [
   }
 
   .project-status[data-status="in-progress"] {
-    color: #ff6120;
+    color: #9b1d20;
   }
 
   .project-status[data-status="complete"] {

@@ -8,7 +8,7 @@ draft: false
 
 Welcome to my corner of the internet.
 
-I'm Thales Pomari — a Data Engineer and MLOps specialist. This blog will be a place where I document things I learn, patterns I find useful, and problems I've solved in the wild.
+I'm Thales Pomari, a Data Engineer and MLOps specialist. This blog will be a place where I document things I learn, patterns I find useful, and problems I've solved in the wild.
 
 ## What to expect
 
@@ -19,6 +19,6 @@ I'm Thales Pomari — a Data Engineer and MLOps specialist. This blog will be a 
 
 ## Why write?
 
-Writing forces clarity. If I can explain something in a post, I actually understand it. And if someone else benefits from that — even better.
+Writing forces clarity. If I can explain something in a post, I actually understand it. And if someone else benefits from that, even better.
 
 More posts coming soon.

@@ -9,7 +9,7 @@
 :root {
   --bg: #f5f0e8;
   --fg: #0a0a0a;
-  --accent: #ff4d00;
+  --accent: #9b1d20;
   --accent-2: #0057ff;
   --muted: #6b6b6b;
   --border: #0a0a0a;
@@ -24,7 +24,7 @@
 [data-theme="dark"] {
   --bg: #0f0f0f;
   --fg: #f0ece0;
-  --accent: #ff6120;
+  --accent: #b52429;
   --accent-2: #4d90ff;
   --muted: #999;
   --border: #f0ece0;
@@ -114,6 +114,18 @@ code, pre {
   color: #fff;
 }
 
+.btn-invert {
+  background: transparent;
+  color: var(--bg);
+  border-color: var(--bg);
+  box-shadow: 4px 4px 0 var(--bg);
+}
+
+.btn-invert:hover {
+  background: var(--bg);
+  color: var(--fg);
+}
+
 .card {
   border: var(--border-width) solid var(--border);
   box-shadow: var(--shadow);
@@ -154,9 +166,9 @@ code, pre {
 
 .section-label {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.95rem;
   font-weight: 700;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--accent);
   margin-bottom: 0.75rem;
