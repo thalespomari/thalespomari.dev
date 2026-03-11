@@ -1,0 +1,153 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const posts = allPosts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<BaseLayout title="Blog" description="Articles on data engineering, MLOps, and AI infrastructure by Thales Pomari.">
+
+  <section class="section">
+    <div class="container">
+      <p class="section-label">// Blog</p>
+      <h1>Articles.</h1>
+      <p class="page-sub">
+        Patterns, lessons, and deep dives on data engineering, MLOps, and AI infrastructure.
+      </p>
+    </div>
+  </section>
+
+  <hr class="divider" style="margin:0; border-color: var(--border);" />
+
+  <section class="section">
+    <div class="container">
+      {posts.length === 0 ? (
+        <div class="empty-state">
+          <p class="section-label">// No posts yet</p>
+          <p>Articles are being written. Check back soon.</p>
+        </div>
+      ) : (
+        <div class="post-list">
+          {posts.map(post => (
+            <a href={`/blog/${post.id}`} class="post-item">
+              <div class="post-date">
+                {post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+              </div>
+              <div class="post-content">
+                <h2 class="post-title">{post.data.title}</h2>
+                <p class="post-description">{post.data.description}</p>
+                <div class="post-tags">
+                  {post.data.tags.map(tag => (
+                    <span class="tag">{tag}</span>
+                  ))}
+                </div>
+              </div>
+              <div class="post-arrow">→</div>
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .page-sub {
+    color: var(--muted);
+    margin-top: 0.75rem;
+    font-size: 1.05rem;
+  }
+
+  .empty-state {
+    border: 2px dashed var(--border);
+    padding: 3rem;
+    color: var(--muted);
+  }
+
+  .post-list {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid var(--border);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .post-item {
+    display: grid;
+    grid-template-columns: 140px 1fr 2rem;
+    gap: 2rem;
+    padding: 1.75rem;
+    border-bottom: 2px solid var(--border);
+    color: var(--fg);
+    align-items: start;
+    transition: background 0.1s, color 0.1s;
+  }
+
+  .post-item:last-child {
+    border-bottom: none;
+  }
+
+  .post-item:hover {
+    background: var(--fg);
+    color: var(--bg);
+  }
+
+  .post-date {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--muted);
+    padding-top: 0.3rem;
+    white-space: nowrap;
+  }
+
+  .post-item:hover .post-date {
+    color: var(--bg);
+    opacity: 0.6;
+  }
+
+  .post-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .post-description {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-bottom: 0.75rem;
+  }
+
+  .post-item:hover .post-description {
+    color: var(--bg);
+    opacity: 0.7;
+  }
+
+  .post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .post-item:hover .tag {
+    background: var(--bg);
+    color: var(--fg);
+  }
+
+  .post-arrow {
+    font-family: var(--font-mono);
+    font-size: 1.2rem;
+    padding-top: 0.2rem;
+    color: var(--accent);
+  }
+
+  @media (max-width: 640px) {
+    .post-item {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+    }
+
+    .post-arrow {
+      display: none;
+    }
+  }
+</style>

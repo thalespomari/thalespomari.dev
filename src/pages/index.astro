@@ -1,0 +1,252 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Home">
+
+  <!-- HERO -->
+  <section class="section hero-section">
+    <div class="container">
+      <p class="section-label">// Data Engineer & MLOps</p>
+      <h1>
+        I build<br/>
+        <span class="highlight">data pipelines</span><br/>
+        & AI infra<br/>
+        at scale.
+      </h1>
+      <p class="hero-sub">
+        Spark, Delta Lake, AWS, FastAPI, HuggingFace.<br/>
+        From raw ingestion to production-ready models.
+      </p>
+      <div class="hero-cta">
+        <a href="/projects" class="btn btn-accent">View Projects</a>
+        <a href="#contact" class="btn">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STACK MARQUEE -->
+  <div class="marquee-wrapper">
+    <div class="marquee-track">
+      <span>Apache Spark</span>
+      <span>·</span>
+      <span>Delta Lake</span>
+      <span>·</span>
+      <span>AWS</span>
+      <span>·</span>
+      <span>FastAPI</span>
+      <span>·</span>
+      <span>HuggingFace</span>
+      <span>·</span>
+      <span>Python</span>
+      <span>·</span>
+      <span>Docker</span>
+      <span>·</span>
+      <span>RAG</span>
+      <span>·</span>
+      <span>MLOps</span>
+      <span>·</span>
+      <span>Redis</span>
+      <span>·</span>
+      <span>EC2</span>
+      <span>·</span>
+      <span>Apache Spark</span>
+      <span>·</span>
+      <span>Delta Lake</span>
+      <span>·</span>
+      <span>AWS</span>
+      <span>·</span>
+      <span>FastAPI</span>
+      <span>·</span>
+      <span>HuggingFace</span>
+      <span>·</span>
+      <span>Python</span>
+      <span>·</span>
+      <span>Docker</span>
+      <span>·</span>
+      <span>RAG</span>
+      <span>·</span>
+      <span>MLOps</span>
+      <span>·</span>
+      <span>Redis</span>
+      <span>·</span>
+      <span>EC2</span>
+      <span>·</span>
+    </div>
+  </div>
+
+  <!-- ABOUT TEASER -->
+  <section class="section">
+    <div class="container about-teaser">
+      <div>
+        <p class="section-label">// Who I am</p>
+        <h2>Tech Lead<br/>Data Engineer</h2>
+      </div>
+      <div class="about-teaser-body">
+        <p>
+          I'm Thales Pomari, a Data Engineer and MLOps specialist with a track record across
+          credit scoring, telecom, retail, and insurance. My signature skill is learning fast
+          and finding the right technology fit for the time and budget of each problem.
+        </p>
+        <p>
+          I've delivered solutions for <strong>Equifax / Boa Vista Serviços</strong>, <strong>TIM (via Dell)</strong>,
+          <strong>Vivo</strong>, <strong>GPA</strong>, and <strong>Prudential</strong>.
+        </p>
+        <a href="/about" class="btn" style="margin-top:1.5rem;">More About Me →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PROJECT -->
+  <section class="section" style="background: var(--fg); color: var(--bg);">
+    <div class="container">
+      <p class="section-label" style="color: var(--accent);">// Featured Project</p>
+      <div class="featured-project">
+        <div>
+          <h2 style="color: var(--bg);">Uirapuru<br/>Orchestrator</h2>
+          <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin:1rem 0;">
+            <span class="tag" style="background:var(--bg);color:var(--fg);">FastAPI</span>
+            <span class="tag" style="background:var(--bg);color:var(--fg);">Redis</span>
+            <span class="tag" style="background:var(--bg);color:var(--fg);">RAG</span>
+            <span class="tag" style="background:var(--bg);color:var(--fg);">Docker</span>
+            <span class="tag" style="background:var(--bg);color:var(--fg);">EC2</span>
+          </div>
+        </div>
+        <div>
+          <p style="color: var(--bg); opacity: 0.85; margin-bottom: 1.5rem;">
+            A distributed job processing orchestrator that manages workers asynchronously
+            via a REST API. Workers execute a RAG pipeline on PDF documents, storing state
+            in Redis and reporting results back to the orchestrator.
+            Containerized with Docker and controlled by systemd on AWS EC2.
+          </p>
+          <a href="/projects" class="btn" style="border-color: var(--bg); color: var(--bg); box-shadow: 4px 4px 0 var(--bg);">
+            See All Projects →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="container contact-section">
+      <div>
+        <p class="section-label">// Contact</p>
+        <h2>Let's work<br/>together.</h2>
+        <p style="margin-top:1rem;color:var(--muted);">
+          Have a project that needs data infrastructure or AI pipelines?
+          I'm available for freelance and consulting work.
+        </p>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:thales@thalespomari.dev" class="btn btn-accent">
+          → thales@thalespomari.dev
+        </a>
+        <a href="https://linkedin.com/in/thalespomari" target="_blank" rel="noopener" class="btn">
+          → LinkedIn
+        </a>
+        <a href="https://github.com/thalespomari" target="_blank" rel="noopener" class="btn">
+          → GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* Hero */
+  .hero-section {
+    padding-top: 6rem;
+    padding-bottom: 5rem;
+  }
+
+  .hero-section h1 {
+    margin: 1rem 0 1.5rem;
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
+    max-width: 50ch;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  /* Marquee */
+  .marquee-wrapper {
+    overflow: hidden;
+    border-top: 2px solid var(--border);
+    border-bottom: 2px solid var(--border);
+    padding: 0.75rem 0;
+    background: var(--accent);
+    color: #fff;
+  }
+
+  .marquee-track {
+    display: flex;
+    gap: 1.5rem;
+    width: max-content;
+    animation: marquee 30s linear infinite;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* About teaser */
+  .about-teaser {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .about-teaser-body p + p {
+    margin-top: 1rem;
+  }
+
+  /* Featured project */
+  .featured-project {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+    align-items: start;
+    margin-top: 1.5rem;
+  }
+
+  /* Contact */
+  .contact-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 2.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .about-teaser,
+    .featured-project,
+    .contact-section {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+</style>

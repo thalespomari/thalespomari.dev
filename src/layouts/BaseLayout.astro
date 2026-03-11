@@ -1,0 +1,94 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Thales Pomari – Data Engineer & MLOps. I build data pipelines and AI infrastructure at scale." } = Astro.props;
+const currentPath = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title} | thalespomari.dev</title>
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a href="/" class="nav-logo">
+          thales<span>.</span>pomari
+        </a>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="/" class={currentPath === '/' ? 'active' : ''}>Home</a></li>
+          <li><a href="/about" class={currentPath === '/about' ? 'active' : ''}>About</a></li>
+          <li><a href="/projects" class={currentPath === '/projects' ? 'active' : ''}>Projects</a></li>
+          <li><a href="/blog" class={currentPath.startsWith('/blog') ? 'active' : ''}>Blog</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+        <div style="display:flex;gap:0.5rem;align-items:center;">
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">◐</button>
+          <button class="theme-toggle" id="menu-toggle" aria-label="Toggle menu" style="display:none">☰</button>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <span>© {new Date().getFullYear()} Thales Pomari. Built with Astro.</span>
+        <div style="display:flex;gap:1rem;">
+          <a href="https://linkedin.com/in/thalespomari" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/thalespomari" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Theme toggle
+      const toggle = document.getElementById('theme-toggle');
+      const html = document.documentElement;
+      const saved = localStorage.getItem('theme') || 'light';
+      html.setAttribute('data-theme', saved);
+
+      toggle?.addEventListener('click', () => {
+        const current = html.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+      });
+
+      // Mobile menu
+      const menuToggle = document.getElementById('menu-toggle');
+      const navLinks = document.getElementById('nav-links');
+      const mobileToggleBtn = document.getElementById('menu-toggle');
+
+      function handleResize() {
+        if (mobileToggleBtn) {
+          mobileToggleBtn.style.display = window.innerWidth <= 640 ? 'block' : 'none';
+        }
+      }
+
+      handleResize();
+      window.addEventListener('resize', handleResize);
+
+      menuToggle?.addEventListener('click', () => {
+        navLinks?.classList.toggle('open');
+      });
+    </script>
+  </body>
+</html>
