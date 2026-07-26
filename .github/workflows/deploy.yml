@@ -31,6 +31,8 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          GITHUB_PAGES_CUSTOM_DOMAIN_ACTIVE: 'true'
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
