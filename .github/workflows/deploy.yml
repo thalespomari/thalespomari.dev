@@ -47,3 +47,35 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  smoke-test-production:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check site responds with 2xx
+        run: curl -f -I https://thalespomari.github.io/thalespomari.dev/
+
+      - name: Check main CSS asset loads correctly
+        run: |
+          html=$(curl -f -s https://thalespomari.github.io/thalespomari.dev/)
+          css_path=$(echo "$html" | grep -oE 'href="[^"]+\.css"' | head -1 | sed -E 's/href="([^"]+)"/\1/')
+
+          if [ -z "$css_path" ]; then
+            echo "No CSS link found in page HTML"
+            exit 1
+          fi
+
+          if [[ "$css_path" == http* ]]; then
+            css_url="$css_path"
+          else
+            css_url="https://thalespomari.github.io${css_path}"
+          fi
+
+          content_type=$(curl -f -s -o /dev/null -w '%{content_type}' "$css_url")
+
+          if [[ "$content_type" != text/css* ]]; then
+            echo "Expected content-type text/css for $css_url, got: $content_type"
+            exit 1
+          fi
+
+          echo "CSS asset OK: $css_url ($content_type)"
