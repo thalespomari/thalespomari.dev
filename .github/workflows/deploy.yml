@@ -55,22 +55,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check site responds with 2xx
-        run: curl -f -I https://thalespomari.github.io/thalespomari.dev/
+        run: curl -f -L -I https://thalespomari.github.io/thalespomari.dev/
 
       - name: Check main CSS asset loads correctly
         run: |
-          html=$(curl -f -s https://thalespomari.github.io/thalespomari.dev/)
+          final_url=$(curl -f -s -L -o /dev/null -w '%{url_effective}' https://thalespomari.github.io/thalespomari.dev/)
+          html=$(curl -f -s -L https://thalespomari.github.io/thalespomari.dev/)
           css_path=$(echo "$html" | grep -oE 'href="[^"]+\.css"' | head -1 | sed -E 's/href="([^"]+)"/\1/')
 
           if [ -z "$css_path" ]; then
-            echo "No CSS link found in page HTML"
+            echo "No CSS link found in page HTML (final URL after redirects: $final_url)"
             exit 1
           fi
 
           if [[ "$css_path" == http* ]]; then
             css_url="$css_path"
           else
-            css_url="https://thalespomari.github.io${css_path}"
+            origin=$(echo "$final_url" | sed -E 's#(https?://[^/]+).*#\1#')
+            css_url="${origin}${css_path}"
           fi
 
           content_type=$(curl -f -s -o /dev/null -w '%{content_type}' "$css_url")
