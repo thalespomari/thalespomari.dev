@@ -1,9 +1,82 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const projects = [
+const caseStudies = [
   {
     id: "01",
+    name: "Data Lake and ETL Observability at Scale",
+    company: "Digiage Technologies · multinational insurance company",
+    period: "06/2024 - Present",
+    problem: "A continuously growing ~900 TB data lake, with multiple squads producing ETLs, had purely reactive failure detection — issues only surfaced when a business user reported missing or incorrect data, often days after the original failure.",
+    stack: ["AWS", "Glue Workflows", "Glue Jobs", "Data Catalog", "Python", "Lambda", "CloudWatch"],
+    solution: [
+      "Led a squad of 5 to 8 engineers on the lake's architecture and governance, standardizing layers (bronze/silver/gold) and the Glue Workflows/Jobs.",
+      "Built observability from scratch: a shared Python library across Glue jobs, with Lambda-based alerts in Microsoft Teams (error details + direct CloudWatch log link).",
+      "Standardized the triage process so any failure reaches the team with enough context for immediate diagnosis.",
+    ],
+    impact: "Reactive incident-driven detection → proactive resolution, ahead of end-user perception.",
+  },
+  {
+    id: "02",
+    name: "Real-Time CDC Pipeline for Insurance Policy Data",
+    company: "Digiage Technologies · multinational insurance company",
+    period: "06/2024 - Present",
+    problem: "Customer, policy, and claims data needed to reach customer service systems (CRM) in near real time, alongside regulatory requirements for data exchange between insurers (Open Insurance/SUSEP).",
+    stack: ["Apache Kafka", "DynamoDB", "AWS", "REST APIs", "Open Insurance"],
+    solution: [
+      "Maintained and evolved a Change Data Capture pipeline with Apache Kafka, capturing changes in customer, policy, and claims data directly at the source.",
+      "Served the processed data through DynamoDB, exposed via APIs consumed by the customer service CRM.",
+      "Managed the Open Insurance integration: receiving data from other insurers and submitting data in the regulatory standard required by SUSEP.",
+    ],
+    impact: "Policy and claims data in near real time for customer service; regulatory compliance maintained in data exchange between insurers.",
+  },
+  {
+    id: "03",
+    name: "Multi-LLM Production Pipeline for Document Analysis",
+    company: "Inovia · part-time",
+    period: "05/2025 - Present",
+    problem: "A data science study had validated promising hyperparameters for document analysis with open-source LLMs, but there was no production path: no prediction API, no model/version orchestration, no infrastructure to serve external customers.",
+    stack: ["Gemma", "Llama", "Qwen", "Prediction APIs", "Cloud", "Claude"],
+    solution: [
+      "Built the production pipeline for all 3 models, including orchestration of which model/version serves each prediction.",
+      "Developed prediction serving and management APIs, decoupling the data science team from infrastructure complexity.",
+      "Manage the cloud infrastructure serving the models to external customers, and integrated generative AI (Claude and agents) into the engineering workflow — code review, quality, security, and testing.",
+    ],
+    impact: "Research study turned into a product serving external customers; code review time reduced through the AI-assisted workflow.",
+  },
+  {
+    id: "04",
+    name: "Real-Time CDP for an 80M-Customer Telecom Carrier",
+    company: "Lima Consulting",
+    period: "04/2023 - 06/2024",
+    problem: "A large telecom carrier (~80 million customers) needed to consolidate customer, campaign, and segment data from heterogeneous batch and streaming sources, and reliably activate multichannel communication journeys.",
+    stack: ["Adobe Experience Platform", "XDM", "BigQuery", "Apache Kafka", "Adobe Journey Optimizer", "Airflow", "Redshift"],
+    solution: [
+      "Modeled XDM schemas with schema evolution and built batch ingestion (BigQuery/CSV) and streaming ingestion, configuring client-side Kafka integrated with AEP.",
+      "Created multichannel activation journeys in Adobe Journey Optimizer (email, push, and SMS), including domain IP warming strategies.",
+      "Built complementary data pipelines with Airflow and Redshift across AWS and GCP environments.",
+    ],
+    impact: "CDP platform in production for a base of ~80 million customers, with unified ingestion and active multichannel journeys.",
+  },
+  {
+    id: "05",
+    name: "BigQuery-to-Spark Migration: From Days to Hours",
+    company: "Boa Vista SCPC · now Equifax Brazil",
+    period: "03/2021 - 04/2023",
+    problem: "Similarity and segmentation variable calculations ran on BigQuery with executions taking days, prone to frequent failures and restarts, driving up cloud costs and delaying variable availability for models.",
+    stack: ["BigQuery", "Apache Spark", "Scala", "Dataproc", "Flask", "Airflow", "GCP"],
+    solution: [
+      "Refactored variable calculations from BigQuery to Spark/Scala, running on a 10-to-15-node Dataproc cluster.",
+      "Created an internal Feature Store for registering and managing models and variables, with OAuth 2.0 authentication integrated with GCP.",
+      "Developed REST APIs in Flask and Airflow DAGs to orchestrate processing, with CI/CD deployments.",
+    ],
+    impact: "Execution time reduced from days (with failures and restarts) to about 4 hours, cutting cloud costs.",
+  },
+];
+
+const projects = [
+  {
+    id: "06",
     name: "AI Orchestrator",
     tagline: "Distributed async job processing with RAG pipeline",
     description: `This project started from a research study: a Data Scientist tuned the model and found
@@ -41,6 +114,52 @@ const projects = [
 
   <section class="section">
     <div class="container">
+      {caseStudies.map(cs => (
+        <article class="case-card">
+          <div class="case-header">
+            <span class="project-index">{cs.id}</span>
+            <div>
+              <p class="case-company">{cs.company} · {cs.period}</p>
+              <h2 class="project-title">{cs.name}</h2>
+            </div>
+          </div>
+
+          <div class="case-body">
+            <div class="case-block">
+              <p class="section-label">// Problem</p>
+              <p class="case-text">{cs.problem}</p>
+            </div>
+
+            <div class="case-block">
+              <p class="section-label">// Solution</p>
+              <ul class="case-list">
+                {cs.solution.map(s => (
+                  <li><span class="case-arrow">→</span> {s}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="case-block case-impact">
+              <p class="section-label">// Impact</p>
+              <p class="case-text">{cs.impact}</p>
+            </div>
+
+            <div class="project-tags">
+              {cs.stack.map(tech => (
+                <span class="tag">{tech}</span>
+              ))}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <hr class="divider" style="margin:0; border-color: var(--border);" />
+
+  <section class="section">
+    <div class="container">
+      <p class="section-label">// Personal Projects</p>
       {projects.map(project => (
         <article class="project-card">
           <div class="project-header">
@@ -96,14 +215,16 @@ const projects = [
     font-size: 1.05rem;
   }
 
-  .project-card {
+  .project-card,
+  .case-card {
     border: 2px solid var(--border);
     box-shadow: var(--shadow-lg);
     margin-bottom: 3rem;
     overflow: hidden;
   }
 
-  .project-header {
+  .project-header,
+  .case-header {
     display: flex;
     gap: 2rem;
     align-items: flex-start;
@@ -111,6 +232,14 @@ const projects = [
     border-bottom: 2px solid var(--border);
     background: var(--fg);
     color: var(--bg);
+  }
+
+  .case-company {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--bg);
+    opacity: 0.65;
+    margin-bottom: 0.25rem;
   }
 
   .project-index {
@@ -192,6 +321,50 @@ const projects = [
     border-top: 2px solid var(--border);
   }
 
+  .case-body {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .case-block .section-label {
+    margin-bottom: 0.5rem;
+  }
+
+  .case-text {
+    line-height: 1.75;
+  }
+
+  .case-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .case-list li {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    display: flex;
+    gap: 0.5rem;
+    align-items: baseline;
+  }
+
+  .case-arrow {
+    color: var(--accent);
+    font-family: var(--font-mono);
+    flex-shrink: 0;
+  }
+
+  .case-impact .case-text {
+    font-weight: 600;
+  }
+
+  .case-body .project-tags {
+    grid-column: auto;
+  }
+
   .more-coming {
     border: 2px dashed var(--border);
     padding: 2rem;
@@ -204,7 +377,8 @@ const projects = [
       grid-template-columns: 1fr;
     }
 
-    .project-header {
+    .project-header,
+    .case-header {
       flex-direction: column;
       gap: 0.5rem;
     }
