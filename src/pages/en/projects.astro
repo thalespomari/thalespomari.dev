@@ -166,7 +166,7 @@ const projects = [
             <span class="project-index">{project.id}</span>
             <div>
               <div class="project-meta">
-                <span class="project-status" data-status={project.status.toLowerCase().replace(' ', '-')}>
+                <span class="project-status" data-status={project.status.toLowerCase().replace(/\s+/g, '-')}>
                   {project.status}
                 </span>
               </div>
