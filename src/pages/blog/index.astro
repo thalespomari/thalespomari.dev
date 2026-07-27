@@ -6,14 +6,14 @@ const allPosts = await getCollection('blog', ({ data }) => !data.draft);
 const posts = allPosts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 ---
 
-<BaseLayout title="Blog" description="Articles on data engineering, MLOps, and AI infrastructure by Thales Pomari.">
+<BaseLayout title="Blog" description="Artigos sobre engenharia de dados, MLOps e infraestrutura de IA por Thales Pomari.">
 
   <section class="section">
     <div class="container">
       <p class="section-label">// Blog</p>
-      <h1>Articles.</h1>
+      <h1>Artigos.</h1>
       <p class="page-sub">
-        Patterns, lessons, and deep dives on data engineering, MLOps, and AI infrastructure.
+        Padrões, lições e análises profundas sobre engenharia de dados, MLOps e infraestrutura de IA.
       </p>
     </div>
   </section>
@@ -24,15 +24,15 @@ const posts = allPosts.sort((a, b) => b.data.date.getTime() - a.data.date.getTim
     <div class="container">
       {posts.length === 0 ? (
         <div class="empty-state">
-          <p class="section-label">// No posts yet</p>
-          <p>Articles are being written. Check back soon.</p>
+          <p class="section-label">// Sem artigos ainda</p>
+          <p>Artigos estão sendo escritos. Volte em breve.</p>
         </div>
       ) : (
         <div class="post-list">
           {posts.map(post => (
             <a href={`/blog/${post.id}`} class="post-item">
               <div class="post-date">
-                {post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+                {post.data.date.toLocaleDateString('pt-BR', { year: 'numeric', month: 'short', day: 'numeric' })}
               </div>
               <div class="post-content">
                 <h2 class="post-title">{post.data.title}</h2>

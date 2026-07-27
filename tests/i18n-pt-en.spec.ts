@@ -56,7 +56,10 @@ const EN_NAV_STRINGS = ['Home', 'About', 'Projects', 'Blog', 'Contact'];
 // continuavam hardcoded em inglês em rotas PT (BaseLayout recebia essas
 // props sem tradução, e blog/index.astro + blog/[id].astro nunca foram
 // tocados pela história 001).
-const EN_METADATA_STRINGS = ['Data Engineer', 'MLOps', 'Data engineering'];
+// "MLOps" é termo técnico mantido igual em PT e EN por design — não entra
+// nestas listas de detecção de idioma (falso-positivo, não é anglicismo
+// incorreto).
+const EN_METADATA_STRINGS = ['Data Engineer', 'Data engineering'];
 const PT_METADATA_STRINGS = ['Engenheiro de Dados', 'Engenharia de dados'];
 
 const EN_BLOG_STRINGS = [
