@@ -83,3 +83,6 @@ jobs:
           fi
 
           echo "CSS asset OK: $css_url ($content_type)"
+
+      - name: Check English homepage responds with 2xx
+        run: curl -f -L -I https://thalespomari.github.io/thalespomari.dev/en/
