@@ -15,6 +15,72 @@ const companies = [
   { name: "GPA", domain: "Food Retail" },
   { name: "Prudential", domain: "Life Insurance" },
 ];
+
+const experience = [
+  {
+    title: "Tech Lead - Data Engineering & MLOps",
+    company: "Digiage Technologies, assigned to a large multinational insurance company (life insurance and investment products)",
+    location: "Campinas, SP",
+    period: "06/2024 - Present",
+    bullets: [
+      "Lead a squad of 5 to 8 data engineers: technical and strategic team management, solution architecture, and project management over a ~900 TB data lake (AWS, medallion architecture, Glue Workflows, Jobs, and Data Catalog).",
+      "Led the integration of a new policy sales and claims management system (life insurance with investment product): business rules review, data modeling and mapping, and ETL development into the lake standard.",
+      "Maintained and evolved a CDC pipeline with Apache Kafka for customer, policy, and complaint data, processed and served through DynamoDB with APIs consumed by the customer service CRM.",
+      "Built ETL observability from scratch: a Python library for Glue jobs with Lambda-triggered alerts in Microsoft Teams (error details and CloudWatch log link), moving the team from incident-driven detection to proactive resolution before users noticed issues.",
+      "Led the data engineering and MLOps work of the company's first AI project, a decision-support solution for claims analysis: aggregating customer, policy, and complaint data, integrating with the classification model developed by the data science team, and delivering grounded recommendations in a Power BI dashboard.",
+      "Managed the Open Insurance integration: receiving data from other insurers and submitting data in the regulatory standard required by SUSEP.",
+    ],
+  },
+  {
+    title: "MLOps Engineer (part-time)",
+    company: "Inovia",
+    location: "Remote",
+    period: "05/2025 - Present",
+    bullets: [
+      "Built the production pipeline for 3 open-source LLMs (Gemma, Llama, and Qwen) to productionize a document analysis solution.",
+      "Developed prediction serving and management APIs, with model and version orchestration.",
+      "Manage the cloud infrastructure serving models to external customers.",
+      "Integrate generative AI into the engineering workflow (Claude and agents): code review, code quality and security, code standardization, and logging. Implemented unit and end-to-end tests with Claude assistance.",
+    ],
+  },
+  {
+    title: "Data Engineer",
+    company: "Lima Consulting",
+    location: "Campinas, SP",
+    period: "04/2023 - 06/2024",
+    bullets: [
+      "Implemented and maintained CDPs (Adobe Experience Platform / Real-Time CDP) for large telecom, retail, and banking companies; the main project served a telecom carrier with roughly 80 million customers.",
+      "Modeled XDM schemas with schema evolution and built batch data ingestion (BigQuery connection and CSV file mapping) and streaming ingestion, configuring client-side Kafka integrated with AEP.",
+      "Used AEP APIs to query customer, campaign, and segment data.",
+      "Developed analytical reports through Query Service (PostgreSQL with nested JSON structures): parsing data to track each customer's campaign touchpoints, reproducing Adobe's native graphical view with more precise filters.",
+      "Created multichannel activation journeys in Adobe Journey Optimizer (email, push, and SMS), including domain IP warming strategies, and contributed to the native Zenvia-Adobe integration for SMS delivery, specifying endpoints and documenting the data exchange between systems.",
+      "Built data pipelines with Airflow and Redshift across AWS and GCP environments.",
+    ],
+  },
+  {
+    title: "Data Engineer - MLOps",
+    company: "Boa Vista SCPC, now Equifax Brazil",
+    location: "Campinas, SP",
+    period: "03/2021 - 04/2023",
+    bullets: [
+      "Created an internal Feature Store for registering and managing models and variables (SQL and metadata, with edit and delete), with OAuth 2.0 authentication integrated with GCP and a Bootstrap frontend.",
+      "Refactored similarity and segmentation variable calculations from BigQuery to Spark/Scala on Dataproc (10 to 15 node cluster): runtime reduced from days, with failures and restarts, to about 4 hours, cutting cloud costs.",
+      "Developed REST APIs in Flask and Airflow DAGs with Python jobs for data processing and model and variable calculation.",
+      "Deployed through CI/CD and maintained projects on GCP: Kubernetes, Dataflow, Bigtable, BigQuery, and Cloud Storage.",
+    ],
+  },
+  {
+    title: "Data Engineer",
+    company: "Digiage Technologies",
+    location: "Campinas, SP",
+    period: "06/2019 - 03/2021",
+    bullets: [
+      "Developed Java MapReduce routines, running on on-premise servers, to generate prepaid and postpaid customer indicators for the marketing team of a major telecom carrier, processing ETLs of roughly 4.5 billion rows, with per-environment algorithm tuning.",
+      "Supported business rule definitions, mapping the paths between tables to reach the information requested by the marketing team.",
+      "Performed loads and optimizations on Hive and Greenplum through Apache Sqoop, produced analyses and reports, and maintained SAS scripts.",
+    ],
+  },
+];
 ---
 
 <BaseLayout title="About" description="About Thales Pomari – Tech Lead Data Engineer and MLOps specialist.">
