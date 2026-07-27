@@ -116,6 +116,8 @@ test.describe('PT routes (default locale, no prefix)', () => {
     expect(bodyText).toContain('Vamos construir algo');
     expect(bodyText).toContain('Disponível para projetos de engenharia de dados');
     expect(containsCI(bodyText, 'Entrar em Contato')).toBe(true);
+    expect(containsCI(bodyText, '// About')).toBe(false);
+    expect(containsCI(bodyText, '// Sobre')).toBe(true);
   });
 
   test('/projects renders Portuguese heading and content', async ({ page }) => {
@@ -246,6 +248,8 @@ test.describe('EN routes (/en prefix) — no regression', () => {
     expect(bodyText).toContain("Let's build something");
     expect(bodyText).toContain('Available for data engineering');
     expect(containsCI(bodyText, 'Get in Touch')).toBe(true);
+    expect(containsCI(bodyText, '// Sobre')).toBe(false);
+    expect(containsCI(bodyText, '// About')).toBe(true);
   });
 
   test('/en/projects renders English heading and content', async ({ page }) => {
