@@ -251,6 +251,12 @@ code, pre {
   box-shadow: var(--shadow-lg);
 }
 
+.lang-toggle {
+  display: inline-block;
+  text-decoration: none;
+  line-height: 1;
+}
+
 /* --- Footer --- */
 .footer {
   border-top: var(--border-width) solid var(--border);
