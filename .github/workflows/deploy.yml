@@ -86,3 +86,6 @@ jobs:
 
       - name: Check English homepage responds with 2xx
         run: curl -f -L -I https://thalespomari.github.io/thalespomari.dev/en/
+
+      - name: Check English about page responds with 2xx
+        run: curl -f -L -I https://thalespomari.github.io/thalespomari.dev/en/about
