@@ -74,11 +74,11 @@ const isProjectsActive = currentPath === projectsHref;
           thales<span>.</span>pomari
         </a>
         <ul class="nav-links" id="nav-links">
-          <li><a href={homeHref} class={isHomeActive ? 'active' : ''}>Home</a></li>
-          <li><a href={aboutHref} class={isAboutActive ? 'active' : ''}>About</a></li>
-          <li><a href={projectsHref} class={isProjectsActive ? 'active' : ''}>Projects</a></li>
+          <li><a href={homeHref} class={isHomeActive ? 'active' : ''}>{locale === 'en' ? 'Home' : 'Início'}</a></li>
+          <li><a href={aboutHref} class={isAboutActive ? 'active' : ''}>{locale === 'en' ? 'About' : 'Sobre'}</a></li>
+          <li><a href={projectsHref} class={isProjectsActive ? 'active' : ''}>{locale === 'en' ? 'Projects' : 'Projetos'}</a></li>
           <li><a href="/blog" class={currentPath.startsWith('/blog') ? 'active' : ''}>Blog</a></li>
-          <li><a href={contactHref}>Contact</a></li>
+          <li><a href={contactHref}>{locale === 'en' ? 'Contact' : 'Contato'}</a></li>
         </ul>
         <div style="display:flex;gap:0.5rem;align-items:center;">
           <a
@@ -86,8 +86,8 @@ const isProjectsActive = currentPath === projectsHref;
             class="theme-toggle lang-toggle"
             aria-label={locale === 'en' ? 'Mudar para português' : 'Switch to English'}
           >{locale === 'en' ? 'PT' : 'EN'}</a>
-          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">◐</button>
-          <button class="theme-toggle" id="menu-toggle" aria-label="Toggle menu" style="display:none">☰</button>
+          <button class="theme-toggle" id="theme-toggle" aria-label={locale === 'en' ? 'Toggle dark mode' : 'Ativar modo escuro'}>◐</button>
+          <button class="theme-toggle" id="menu-toggle" aria-label={locale === 'en' ? 'Toggle menu' : 'Alternar menu'} style="display:none">☰</button>
         </div>
       </div>
     </nav>
@@ -98,7 +98,7 @@ const isProjectsActive = currentPath === projectsHref;
 
     <footer class="footer">
       <div class="container footer-inner">
-        <span>© {new Date().getFullYear()} Thales Pomari. Built with Astro.</span>
+        <span>© {new Date().getFullYear()} Thales Pomari. {locale === 'en' ? 'Built with Astro.' : 'Construído com Astro.'}</span>
         <div style="display:flex;gap:1rem;">
           <a href="https://linkedin.com/in/thalespomari" target="_blank" rel="noopener">LinkedIn</a>
           <a href="https://github.com/thalespomari" target="_blank" rel="noopener">GitHub</a>

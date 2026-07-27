@@ -78,23 +78,24 @@ const projects = [
   {
     id: "06",
     name: "AI Orchestrator",
-    tagline: "Distributed async job processing with RAG pipeline",
-    description: `This project started from a research study: a Data Scientist tuned the model and found
-      hyperparameters that worked well. My job was to take that study and build it into a product.
-      The result is a distributed orchestrator that manages jobs and workers asynchronously through
-      a REST API built with FastAPI, using Redis as the state store and job queue. Workers process
-      PDF documents through a RAG pipeline and report results back to the orchestrator.
-      Everything runs in Docker, managed by a systemd service on AWS EC2 that starts automatically on boot.
-      Next step is a monitoring panel so anyone on the team can check job executions, statuses,
-      and resource usage without touching the API directly.`,
-    status: "In Progress",
+    tagline: "Processamento assíncrono e distribuído de jobs com pipeline RAG",
+    description: `Este projeto nasceu de um estudo de pesquisa: um Cientista de Dados ajustou o modelo e encontrou
+      hyperparameters que funcionavam bem. Meu trabalho foi pegar esse estudo e transformá-lo em produto.
+      O resultado é um orquestrador distribuído que gerencia jobs e workers de forma assíncrona através
+      de uma API REST construída com FastAPI, usando Redis como state store e fila de jobs. Os workers processam
+      documentos PDF através de um pipeline RAG e reportam os resultados de volta ao orquestrador.
+      Tudo roda em Docker, gerenciado por um serviço systemd na AWS EC2 que inicia automaticamente no boot.
+      O próximo passo é um painel de monitoramento para que qualquer pessoa do time possa checar execuções de jobs,
+      status e uso de recursos sem precisar acessar a API diretamente.`,
+    status: "Em Andamento",
+    statusKey: "in-progress",
     tags: ["FastAPI", "Redis", "RAG", "Docker", "EC2", "Python", "AWS"],
     highlights: [
-      "Async REST API with FastAPI",
-      "Redis as state store + job queue",
-      "PDF processing via RAG pipeline",
-      "Docker + systemd on AWS EC2",
-      "Dashboard panel for monitoring (coming soon)",
+      "API REST assíncrona com FastAPI",
+      "Redis como state store + fila de jobs",
+      "Processamento de PDFs via pipeline RAG",
+      "Docker + systemd na AWS EC2",
+      "Painel de monitoramento (em breve)",
     ],
   },
 ];
@@ -104,9 +105,9 @@ const projects = [
 
   <section class="section">
     <div class="container">
-      <p class="section-label">// Projects</p>
-      <h1>What I've built.</h1>
-      <p class="page-sub">Hands-on projects in data infrastructure, AI systems, and distributed computing.</p>
+      <p class="section-label">// Projetos</p>
+      <h1>O que construí.</h1>
+      <p class="page-sub">Projetos práticos em infraestrutura de dados, sistemas de IA e computação distribuída.</p>
     </div>
   </section>
 
@@ -159,14 +160,14 @@ const projects = [
 
   <section class="section">
     <div class="container">
-      <p class="section-label">// Personal Projects</p>
+      <p class="section-label">// Projetos Pessoais</p>
       {projects.map(project => (
         <article class="project-card">
           <div class="project-header">
             <span class="project-index">{project.id}</span>
             <div>
               <div class="project-meta">
-                <span class="project-status" data-status={project.status.toLowerCase().replace(/\s+/g, '-')}>
+                <span class="project-status" data-status={project.statusKey}>
                   {project.status}
                 </span>
               </div>
@@ -179,7 +180,7 @@ const projects = [
             <p class="project-description">{project.description}</p>
 
             <div class="project-highlights">
-              <p class="section-label" style="margin-bottom:0.75rem;">// Key Features</p>
+              <p class="section-label" style="margin-bottom:0.75rem;">// Principais Funcionalidades</p>
               <ul>
                 {project.highlights.map(h => (
                   <li>
@@ -198,10 +199,10 @@ const projects = [
         </article>
       ))}
 
-      <!-- Placeholder for future projects -->
+      <!-- Placeholder para futuros projetos -->
       <div class="more-coming">
-        <p class="section-label">// More coming</p>
-        <p>More projects will be documented here as they reach a shareable state.</p>
+        <p class="section-label">// Mais em breve</p>
+        <p>Mais projetos serão documentados aqui conforme atingirem um estado compartilhável.</p>
       </div>
     </div>
   </section>
