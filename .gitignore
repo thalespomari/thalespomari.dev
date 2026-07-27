@@ -25,3 +25,9 @@ pnpm-debug.log*
 
 # ToDo Tasks
 todo/
+
+# Playwright
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
