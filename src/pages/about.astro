@@ -2,10 +2,13 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const skills = [
-  { category: "Data", items: ["Apache Spark", "Delta Lake", "PySpark", "SQL", "Scala", "Airflow"] },
-  { category: "AI / ML", items: ["DeepLearning", "RAG", "LLMs", "HuggingFace", "FastAPI", "Python"] },
-  { category: "Cloud & Infra", items: ["AWS", "GCP", "Docker", "Redis", "Git"] },
-  { category: "Practices", items: ["MLOps", "DataOps", "REST APIs", "Async Processing", "Distributed Systems"] },
+  { category: "Linguagens", items: ["Python", "Scala", "Java", "SQL", "Shell Script"] },
+  { category: "Dados Distribuídos & Streaming", items: ["Apache Kafka", "Apache Spark", "Dataflow", "Hive", "MapReduce"] },
+  { category: "Orquestração", items: ["Apache Airflow", "AWS Glue Workflows"] },
+  { category: "AWS", items: ["Glue", "S3", "Lambda", "DynamoDB", "RDS", "SageMaker", "CloudWatch", "CodeBuild", "CloudFormation"] },
+  { category: "GCP", items: ["BigQuery", "Dataproc", "Dataflow", "Bigtable", "GKE/Kubernetes", "Cloud Storage", "Cloud Build"] },
+  { category: "MLOps", items: ["Produtização de Modelos e LLMs", "CI/CD", "Observabilidade e Alerting", "Model Serving", "APIs de Predição"] },
+  { category: "IA Aplicada", items: ["Claude e Agentes de Código", "Gemma", "Llama", "Qwen"] },
 ];
 
 const companies = [
