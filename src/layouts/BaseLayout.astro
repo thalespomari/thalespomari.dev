@@ -39,6 +39,18 @@ const otherLocaleHref =
   locale === 'en'
     ? enToPt[currentPath] ?? '/'
     : ptToEn[currentPath] ?? '/en';
+
+// Links do nav principal (Home, About, Projects, Contact) precisam apontar
+// para as rotas do locale ativo. Blog é exclusivo em PT (fora de escopo da
+// bilinguização) — o link de Blog permanece fixo em PT em qualquer locale.
+const homeHref = locale === 'en' ? '/en' : '/';
+const aboutHref = locale === 'en' ? '/en/about' : '/about';
+const projectsHref = locale === 'en' ? '/en/projects' : '/projects';
+const contactHref = locale === 'en' ? '/en/#contact' : '/#contact';
+
+const isHomeActive = currentPath === homeHref;
+const isAboutActive = currentPath === aboutHref;
+const isProjectsActive = currentPath === projectsHref;
 ---
 
 <!doctype html>
@@ -58,15 +70,15 @@ const otherLocaleHref =
   <body>
     <nav class="nav">
       <div class="container nav-inner">
-        <a href="/" class="nav-logo">
+        <a href={homeHref} class="nav-logo">
           thales<span>.</span>pomari
         </a>
         <ul class="nav-links" id="nav-links">
-          <li><a href="/" class={currentPath === '/' ? 'active' : ''}>Home</a></li>
-          <li><a href="/about" class={currentPath === '/about' ? 'active' : ''}>About</a></li>
-          <li><a href="/projects" class={currentPath === '/projects' ? 'active' : ''}>Projects</a></li>
+          <li><a href={homeHref} class={isHomeActive ? 'active' : ''}>Home</a></li>
+          <li><a href={aboutHref} class={isAboutActive ? 'active' : ''}>About</a></li>
+          <li><a href={projectsHref} class={isProjectsActive ? 'active' : ''}>Projects</a></li>
           <li><a href="/blog" class={currentPath.startsWith('/blog') ? 'active' : ''}>Blog</a></li>
-          <li><a href="/#contact">Contact</a></li>
+          <li><a href={contactHref}>Contact</a></li>
         </ul>
         <div style="display:flex;gap:0.5rem;align-items:center;">
           <a
