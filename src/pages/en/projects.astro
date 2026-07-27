@@ -1,0 +1,216 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const projects = [
+  {
+    id: "01",
+    name: "AI Orchestrator",
+    tagline: "Distributed async job processing with RAG pipeline",
+    description: `This project started from a research study: a Data Scientist tuned the model and found
+      hyperparameters that worked well. My job was to take that study and build it into a product.
+      The result is a distributed orchestrator that manages jobs and workers asynchronously through
+      a REST API built with FastAPI, using Redis as the state store and job queue. Workers process
+      PDF documents through a RAG pipeline and report results back to the orchestrator.
+      Everything runs in Docker, managed by a systemd service on AWS EC2 that starts automatically on boot.
+      Next step is a monitoring panel so anyone on the team can check job executions, statuses,
+      and resource usage without touching the API directly.`,
+    status: "In Progress",
+    tags: ["FastAPI", "Redis", "RAG", "Docker", "EC2", "Python", "AWS"],
+    highlights: [
+      "Async REST API with FastAPI",
+      "Redis as state store + job queue",
+      "PDF processing via RAG pipeline",
+      "Docker + systemd on AWS EC2",
+      "Dashboard panel for monitoring (coming soon)",
+    ],
+  },
+];
+---
+
+<BaseLayout title="Projects" description="Data engineering and AI projects by Thales Pomari.">
+
+  <section class="section">
+    <div class="container">
+      <p class="section-label">// Projects</p>
+      <h1>What I've built.</h1>
+      <p class="page-sub">Hands-on projects in data infrastructure, AI systems, and distributed computing.</p>
+    </div>
+  </section>
+
+  <hr class="divider" style="margin:0; border-color: var(--border);" />
+
+  <section class="section">
+    <div class="container">
+      {projects.map(project => (
+        <article class="project-card">
+          <div class="project-header">
+            <span class="project-index">{project.id}</span>
+            <div>
+              <div class="project-meta">
+                <span class="project-status" data-status={project.status.toLowerCase().replace(' ', '-')}>
+                  {project.status}
+                </span>
+              </div>
+              <h2 class="project-title">{project.name}</h2>
+              <p class="project-tagline">{project.tagline}</p>
+            </div>
+          </div>
+
+          <div class="project-body">
+            <p class="project-description">{project.description}</p>
+
+            <div class="project-highlights">
+              <p class="section-label" style="margin-bottom:0.75rem;">// Key Features</p>
+              <ul>
+                {project.highlights.map(h => (
+                  <li>
+                    <span style="color:var(--accent);font-family:var(--font-mono);">→</span> {h}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="project-tags">
+              {project.tags.map(tag => (
+                <span class="tag">{tag}</span>
+              ))}
+            </div>
+          </div>
+        </article>
+      ))}
+
+      <!-- Placeholder for future projects -->
+      <div class="more-coming">
+        <p class="section-label">// More coming</p>
+        <p>More projects will be documented here as they reach a shareable state.</p>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .page-sub {
+    color: var(--muted);
+    margin-top: 0.75rem;
+    font-size: 1.05rem;
+  }
+
+  .project-card {
+    border: 2px solid var(--border);
+    box-shadow: var(--shadow-lg);
+    margin-bottom: 3rem;
+    overflow: hidden;
+  }
+
+  .project-header {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    padding: 2rem;
+    border-bottom: 2px solid var(--border);
+    background: var(--fg);
+    color: var(--bg);
+  }
+
+  .project-index {
+    font-family: var(--font-mono);
+    font-size: 3rem;
+    font-weight: 700;
+    opacity: 0.15;
+    line-height: 1;
+    min-width: 4rem;
+  }
+
+  .project-meta {
+    margin-bottom: 0.5rem;
+  }
+
+  .project-status {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.2rem 0.6rem;
+    border: 2px solid currentColor;
+  }
+
+  .project-status[data-status="in-progress"] {
+    color: #9b1d20;
+  }
+
+  .project-status[data-status="complete"] {
+    color: #00c97a;
+  }
+
+  .project-title {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    color: var(--bg);
+    margin: 0.25rem 0;
+  }
+
+  .project-tagline {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--bg);
+    opacity: 0.65;
+  }
+
+  .project-body {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  .project-description {
+    line-height: 1.75;
+  }
+
+  .project-highlights ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .project-highlights li {
+    font-size: 0.95rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: baseline;
+  }
+
+  .project-tags {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding-top: 1rem;
+    border-top: 2px solid var(--border);
+  }
+
+  .more-coming {
+    border: 2px dashed var(--border);
+    padding: 2rem;
+    color: var(--muted);
+    opacity: 0.6;
+  }
+
+  @media (max-width: 768px) {
+    .project-body {
+      grid-template-columns: 1fr;
+    }
+
+    .project-header {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .project-index {
+      font-size: 2rem;
+    }
+  }
+</style>
