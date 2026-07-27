@@ -11,14 +11,6 @@ const skills = [
   { category: "Applied AI", items: ["Claude and Code Agents", "Gemma", "Llama", "Qwen"] },
 ];
 
-const companies = [
-  { name: "Equifax / Boa Vista Serviços", domain: "Credit Scoring" },
-  { name: "TIM", domain: "Telecom" },
-  { name: "Vivo", domain: "Telecom" },
-  { name: "GPA", domain: "Food Retail" },
-  { name: "Prudential", domain: "Life Insurance" },
-];
-
 const experience = [
   {
     title: "Tech Lead - Data Engineering & MLOps",
@@ -172,6 +164,40 @@ const languages = [
 
   <hr class="divider" style="margin:0; border-color: var(--border);" />
 
+  <!-- EXPERIENCE -->
+  <section class="section">
+    <div class="container">
+      <div class="bio-grid">
+        <div class="bio-label">
+          <p class="section-label">// Experience</p>
+        </div>
+        <div class="experience-list">
+          {experience.map(job => (
+            <div class="experience-item">
+              <div class="experience-header">
+                <div>
+                  <h3>{job.title}</h3>
+                  <p class="experience-company">{job.company}</p>
+                </div>
+                <div class="experience-meta">
+                  <span class="tag">{job.period}</span>
+                  <span class="experience-location">{job.location}</span>
+                </div>
+              </div>
+              <ul class="experience-bullets">
+                {job.bullets.map(bullet => (
+                  <li>{bullet}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" style="margin:0; border-color: var(--border);" />
+
   <!-- SKILLS -->
   <section class="section">
     <div class="container">
@@ -197,26 +223,88 @@ const languages = [
 
   <hr class="divider" style="margin:0; border-color: var(--border);" />
 
-  <!-- COMPANIES -->
+  <!-- EDUCATION -->
   <section class="section">
     <div class="container">
       <div class="bio-grid">
         <div class="bio-label">
-          <p class="section-label">// Experience</p>
+          <p class="section-label">// Education</p>
         </div>
-        <div>
-          <p style="color:var(--muted); margin-bottom: 2rem;">Companies and domains I've delivered data and AI solutions for:</p>
-          <div class="companies-list">
-            {companies.map((c, i) => (
-              <div class="company-item">
-                <span class="company-index">{String(i + 1).padStart(2, '0')}</span>
-                <div>
-                  <strong>{c.name}</strong>
-                  <span class="company-domain">{c.domain}</span>
-                </div>
+        <div class="education-list">
+          {education.map(item => (
+            <div class="education-item">
+              <h3>{item.degree}</h3>
+              <p class="education-institution">{item.institution}</p>
+              <div class="experience-meta">
+                <span class="tag">{item.period}</span>
+                {item.note && <span class="education-note">{item.note}</span>}
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" style="margin:0; border-color: var(--border);" />
+
+  <!-- CERTIFICATIONS -->
+  <section class="section">
+    <div class="container">
+      <div class="bio-grid">
+        <div class="bio-label">
+          <p class="section-label">// Certifications</p>
+        </div>
+        <div class="education-list">
+          {certifications.map(cert => (
+            <div class="education-item">
+              <h3>{cert.name}</h3>
+              <p class="education-institution">{cert.detail}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" style="margin:0; border-color: var(--border);" />
+
+  <!-- PUBLICATIONS -->
+  <section class="section">
+    <div class="container">
+      <div class="bio-grid">
+        <div class="bio-label">
+          <p class="section-label">// Publications</p>
+        </div>
+        <div class="education-list">
+          {publications.map(pub => (
+            <div class="education-item">
+              <h3>{pub.title}</h3>
+              <p class="education-institution">{pub.authors}</p>
+              <div class="experience-meta">
+                <span class="tag">{pub.venue}</span>
+                <a href={pub.doiUrl} target="_blank" rel="noopener">DOI: {pub.doi}</a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" style="margin:0; border-color: var(--border);" />
+
+  <!-- LANGUAGES -->
+  <section class="section">
+    <div class="container">
+      <div class="bio-grid">
+        <div class="bio-label">
+          <p class="section-label">// Languages</p>
+        </div>
+        <div class="languages-list">
+          {languages.map(lang => (
+            <span class="tag">{lang.name} — {lang.level}</span>
+          ))}
         </div>
       </div>
     </div>
@@ -286,54 +374,114 @@ const languages = [
     gap: 0.5rem;
   }
 
-  .companies-list {
+  .experience-list {
     display: flex;
     flex-direction: column;
-    gap: 0;
-    border: 2px solid var(--border);
-    box-shadow: var(--shadow);
+    gap: 2.5rem;
   }
 
-  .company-item {
+  .experience-item {
+    border-left: 2px solid var(--border);
+    padding-left: 1.5rem;
+  }
+
+  .experience-header {
     display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 1rem 1.25rem;
-    border-bottom: 2px solid var(--border);
-    transition: background 0.1s;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
   }
 
-  .company-item:last-child {
-    border-bottom: none;
+  .experience-header h3 {
+    font-size: 1rem;
   }
 
-  .company-item:hover {
-    background: var(--fg);
-    color: var(--bg);
+  .experience-company {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
   }
 
-  .company-index {
+  .experience-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.4rem;
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  .experience-location {
     font-family: var(--font-mono);
     font-size: 0.75rem;
-    color: var(--accent);
-    min-width: 2rem;
-  }
-
-  .company-item:hover .company-index {
-    color: var(--accent);
-  }
-
-  .company-domain {
-    display: block;
-    font-size: 0.8rem;
     color: var(--muted);
-    font-family: var(--font-mono);
-    margin-top: 0.1rem;
   }
 
-  .company-item:hover .company-domain {
-    color: var(--bg);
-    opacity: 0.7;
+  .experience-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .experience-bullets li {
+    position: relative;
+    padding-left: 1.25rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .experience-bullets li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+
+  .education-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .education-item h3 {
+    font-size: 1rem;
+  }
+
+  .education-institution {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+  }
+
+  .education-item .experience-meta {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    margin-top: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .education-note {
+    color: var(--muted);
+    font-size: 0.85rem;
+    font-style: italic;
+  }
+
+  .education-item a {
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    text-decoration: underline;
+  }
+
+  .languages-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
   }
 
   @media (max-width: 768px) {
@@ -344,6 +492,17 @@ const languages = [
 
     .skills-grid {
       grid-template-columns: 1fr;
+    }
+
+    .experience-header {
+      flex-direction: column;
+    }
+
+    .experience-meta {
+      align-items: flex-start;
+      text-align: left;
+      flex-direction: row;
+      flex-wrap: wrap;
     }
   }
 </style>
