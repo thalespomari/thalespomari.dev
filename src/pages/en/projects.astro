@@ -6,13 +6,13 @@ const caseStudies = [
     id: "01",
     name: "Data Lake and ETL Observability at Scale",
     company: "Digiage Technologies · multinational insurance company",
-    period: "06/2024 - Present",
-    problem: "A continuously growing ~900 TB data lake, with multiple squads producing ETLs, had purely reactive failure detection — issues only surfaced when a business user reported missing or incorrect data, often days after the original failure.",
+    period: "06/2024 - 08/2026",
+    problem: "A constantly growing ~900 TB data lake, with multiple squads producing ETLs, had purely reactive failure detection — issues only surfaced when a business user reported incorrect or missing data, often days after the original failure.",
     stack: ["AWS", "Glue Workflows", "Glue Jobs", "Data Catalog", "Python", "Lambda", "CloudWatch"],
     solution: [
-      "Led a squad of 5 to 8 engineers on the lake's architecture and governance, standardizing layers (bronze/silver/gold) and the Glue Workflows/Jobs.",
-      "Built observability from scratch: a shared Python library across Glue jobs, with Lambda-based alerts in Microsoft Teams (error details + direct CloudWatch log link).",
-      "Standardized the triage process so any failure reaches the team with enough context for immediate diagnosis.",
+      "Led a squad of 5 to 8 engineers on lake architecture and governance, standardizing medallion layers and Glue Workflows/Jobs.",
+      "Built observability from scratch: a shared Python library for Glue jobs, with Lambda-triggered alerts in Microsoft Teams (error details + direct CloudWatch link).",
+      "Standardized triage: every failure reaches the team with enough context for immediate diagnosis.",
     ],
     impact: "Reactive incident-driven detection → proactive resolution, ahead of end-user perception.",
   },
@@ -20,63 +20,77 @@ const caseStudies = [
     id: "02",
     name: "Real-Time CDC Pipeline for Insurance Policy Data",
     company: "Digiage Technologies · multinational insurance company",
-    period: "06/2024 - Present",
-    problem: "Customer, policy, and claims data needed to reach customer service systems (CRM) in near real time, alongside regulatory requirements for data exchange between insurers (Open Insurance/SUSEP).",
+    period: "06/2024 - 08/2026",
+    problem: "Customer, policy, and complaint data had to reach customer service systems (CRM) in near real time, while also meeting regulatory data-exchange requirements between insurers (Open Insurance/SUSEP).",
     stack: ["Apache Kafka", "DynamoDB", "AWS", "REST APIs", "Open Insurance"],
     solution: [
-      "Maintained and evolved a Change Data Capture pipeline with Apache Kafka, capturing changes in customer, policy, and claims data directly at the source.",
+      "Maintained and evolved a Change Data Capture pipeline with Apache Kafka, capturing changes to customer, policy, and complaint data at the source.",
       "Served the processed data through DynamoDB, exposed via APIs consumed by the customer service CRM.",
       "Managed the Open Insurance integration: receiving data from other insurers and submitting data in the regulatory standard required by SUSEP.",
     ],
-    impact: "Policy and claims data in near real time for customer service; regulatory compliance maintained in data exchange between insurers.",
+    impact: "Near-real-time policy and complaint data for customer service; regulatory compliance maintained in insurer-to-insurer data exchange.",
   },
   {
     id: "03",
+    name: "AI Decision Support for Complaint Analysis",
+    company: "Digiage Technologies · multinational insurance company",
+    period: "06/2024 - 08/2026",
+    problem: "The company had never put an AI project into production. Complaint analysis relied on manually querying data scattered across multiple systems (customer, policy, complaint history), with no systematic decision support for analysts.",
+    stack: ["AWS", "Glue", "Python", "Power BI", "MLOps"],
+    solution: [
+      "Led the data engineering and MLOps work: aggregating customer, policy, and complaint data into a unified view.",
+      "Integrated the pipeline with the classification model developed by the data science team.",
+      "Delivered grounded recommendations in a Power BI dashboard, with the supporting data behind each suggestion.",
+    ],
+    impact: "The company's first AI project in production, turning complaint analysis from manual lookup into model-supported decision-making.",
+  },
+  {
+    id: "04",
     name: "Multi-LLM Production Pipeline for Document Analysis",
     company: "Inovia · part-time",
     period: "05/2025 - Present",
     problem: "A data science study had validated promising hyperparameters for document analysis with open-source LLMs, but there was no production path: no prediction API, no model/version orchestration, no infrastructure to serve external customers.",
     stack: ["Gemma", "Llama", "Qwen", "Prediction APIs", "Cloud", "Claude"],
     solution: [
-      "Built the production pipeline for all 3 models, including orchestration of which model/version serves each prediction.",
+      "Built the production pipeline for the 3 models (Gemma, Llama, and Qwen), including orchestration of which model/version serves each prediction.",
       "Developed prediction serving and management APIs, decoupling the data science team from infrastructure complexity.",
       "Manage the cloud infrastructure serving the models to external customers, and integrated generative AI (Claude and agents) into the engineering workflow — code review, quality, security, and testing.",
     ],
-    impact: "Research study turned into a product serving external customers; code review time reduced through the AI-assisted workflow.",
+    impact: "A research study turned into a product serving external customers; code review time reduced with a generative-AI-assisted workflow.",
   },
   {
-    id: "04",
-    name: "Real-Time CDP for an 80M-Customer Telecom Carrier",
+    id: "05",
+    name: "Real-Time CDP for a Telecom Carrier with 80M Customers",
     company: "Lima Consulting",
     period: "04/2023 - 06/2024",
     problem: "A large telecom carrier (~80 million customers) needed to consolidate customer, campaign, and segment data from heterogeneous batch and streaming sources, and reliably activate multichannel communication journeys.",
     stack: ["Adobe Experience Platform", "XDM", "BigQuery", "Apache Kafka", "Adobe Journey Optimizer", "Airflow", "Redshift"],
     solution: [
-      "Modeled XDM schemas with schema evolution and built batch ingestion (BigQuery/CSV) and streaming ingestion, configuring client-side Kafka integrated with AEP.",
+      "Modeled XDM schemas with schema evolution and built batch (BigQuery/CSV) and streaming ingestion, configuring client-side Kafka integrated with AEP.",
       "Created multichannel activation journeys in Adobe Journey Optimizer (email, push, and SMS), including domain IP warming strategies.",
       "Built complementary data pipelines with Airflow and Redshift across AWS and GCP environments.",
     ],
-    impact: "CDP platform in production for a base of ~80 million customers, with unified ingestion and active multichannel journeys.",
+    impact: "A CDP platform in production for a ~80 million customer base, with unified ingestion and active multichannel journeys.",
   },
   {
-    id: "05",
-    name: "BigQuery-to-Spark Migration: From Days to Hours",
+    id: "06",
+    name: "BigQuery to Spark Migration: From Days to Hours",
     company: "Boa Vista SCPC · now Equifax Brazil",
     period: "03/2021 - 04/2023",
-    problem: "Similarity and segmentation variable calculations ran on BigQuery with executions taking days, prone to frequent failures and restarts, driving up cloud costs and delaying variable availability for models.",
+    problem: "Similarity and segmentation variable calculations ran on BigQuery with executions that took days, prone to frequent failures and restarts, driving up cloud costs and delaying variable availability for models.",
     stack: ["BigQuery", "Apache Spark", "Scala", "Dataproc", "Flask", "Airflow", "GCP"],
     solution: [
-      "Refactored variable calculations from BigQuery to Spark/Scala, running on a 10-to-15-node Dataproc cluster.",
+      "Refactored the variable calculations from BigQuery to Spark/Scala, running on a 10 to 15 node Dataproc cluster.",
       "Created an internal Feature Store for registering and managing models and variables, with OAuth 2.0 authentication integrated with GCP.",
       "Developed REST APIs in Flask and Airflow DAGs to orchestrate processing, with CI/CD deployments.",
     ],
-    impact: "Execution time reduced from days (with failures and restarts) to about 4 hours, cutting cloud costs.",
+    impact: "Runtime reduced from days (with failures and restarts) to about 4 hours, cutting cloud costs.",
   },
 ];
 
 const projects = [
   {
-    id: "06",
+    id: "07",
     name: "AI Orchestrator",
     tagline: "Distributed async job processing with RAG pipeline",
     description: `This project started from a research study: a Data Scientist tuned the model and found
@@ -100,13 +114,13 @@ const projects = [
 ];
 ---
 
-<BaseLayout title="Projects" description="Data engineering and AI projects by Thales Pomari.">
+<BaseLayout title="Projects" description="Data engineering, MLOps, and AI case studies by Thales Pomari.">
 
   <section class="section">
     <div class="container">
       <p class="section-label">// Projects</p>
       <h1>What I've built.</h1>
-      <p class="page-sub">Hands-on projects in data infrastructure, AI systems, and distributed computing.</p>
+      <p class="page-sub">Case studies and hands-on projects in data infrastructure, AI systems, and distributed computing.</p>
     </div>
   </section>
 
