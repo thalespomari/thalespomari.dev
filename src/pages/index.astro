@@ -156,10 +156,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
         <div>
           <p style="color: var(--bg); opacity: 0.85; margin-bottom: 1.5rem;">
-            Um orquestrador de processamento de jobs distribuído que gerencia workers de forma
-            assíncrona via API REST. Os workers executam um pipeline RAG sobre documentos PDF,
-            armazenando estado no Redis e reportando resultados de volta ao orquestrador.
-            Containerizado com Docker e controlado por systemd na AWS EC2.
+            Orquestrador distribuído de jobs que nasceu de um estudo de pesquisa e virou produto:
+            workers assíncronos executam um pipeline RAG sobre documentos PDF, coordenados por
+            uma API REST em FastAPI, com Redis como state store e fila de jobs. Containerizado
+            com Docker e gerenciado por systemd na AWS EC2.
           </p>
           <a href="/projects" class="btn btn-invert">
             Ver Todos os Projetos →

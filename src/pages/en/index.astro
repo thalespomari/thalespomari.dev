@@ -155,10 +155,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         </div>
         <div>
           <p style="color: var(--bg); opacity: 0.85; margin-bottom: 1.5rem;">
-            A distributed job processing orchestrator that manages workers asynchronously
-            via a REST API. Workers execute a RAG pipeline on PDF documents, storing state
-            in Redis and reporting results back to the orchestrator.
-            Containerized with Docker and controlled by systemd on AWS EC2.
+            A distributed job orchestrator born from a research study and turned into a
+            product: asynchronous workers run a RAG pipeline over PDF documents, coordinated
+            by a FastAPI REST API with Redis as state store and job queue. Containerized with
+            Docker and managed by systemd on AWS EC2.
           </p>
           <a href="/en/projects" class="btn btn-invert">
             See All Projects →
