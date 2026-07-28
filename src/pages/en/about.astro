@@ -13,17 +13,28 @@ const skills = [
 
 const experience = [
   {
+    title: "MLOps Engineer",
+    company: "Housecall Pro",
+    location: "Remote (US)",
+    period: "08/2026 - Present",
+    description: "Infrastructure to deploy, monitor, and manage ML models in production: end-to-end automated pipelines (feature engineering, deployment, and continuous evaluation), CI/CD for reproducible model releases, and monitoring, logging, and alerting — partnering with data scientists and product teams.",
+    bullets: [],
+  },
+  {
     title: "Tech Lead - Data Engineering & MLOps",
-    company: "Digiage Technologies, assigned to a large multinational insurance company (life insurance and investment products)",
+    company: "Digiage Technologies, assigned to a multinational insurance company (life insurance and investment products)",
     location: "Campinas, SP",
-    period: "06/2024 - Present",
+    period: "06/2024 - 08/2026",
     bullets: [
-      "Lead a squad of 5 to 8 data engineers: technical and strategic team management, solution architecture, and project management over a ~900 TB data lake (AWS, medallion architecture, Glue Workflows, Jobs, and Data Catalog).",
+      "Led a squad of 5 to 8 data engineers: technical and strategic team management, solution architecture, and project management over a ~900 TB data lake (AWS, medallion architecture, Glue Workflows, Jobs, and Data Catalog).",
       "Led the integration of a new policy sales and claims management system (life insurance with investment product): business rules review, data modeling and mapping, and ETL development into the lake standard.",
       "Maintained and evolved a CDC pipeline with Apache Kafka for customer, policy, and complaint data, processed and served through DynamoDB with APIs consumed by the customer service CRM.",
-      "Built ETL observability from scratch: a Python library for Glue jobs with Lambda-triggered alerts in Microsoft Teams (error details and CloudWatch log link), moving the team from incident-driven detection to proactive resolution before users noticed issues.",
+      "Deployed ETL observability from scratch: a Python library for Glue jobs with Lambda-triggered alerts in Microsoft Teams (error details and CloudWatch log link), moving the team from incident-driven detection to proactive resolution before users noticed issues.",
       "Led the data engineering and MLOps work of the company's first AI project, a decision-support solution for claims analysis: aggregating customer, policy, and complaint data, integrating with the classification model developed by the data science team, and delivering grounded recommendations in a Power BI dashboard.",
       "Managed the Open Insurance integration: receiving data from other insurers and submitting data in the regulatory standard required by SUSEP.",
+      "Enabled the ML platform for data scientists: SageMaker AI Notebooks with lifecycle scripts integrated with the data lake.",
+      "Created automated deployment from scratch with AWS CodeBuild: backups, artifact generation, automatic change documentation, and publishing to S3, replacing a fully manual process.",
+      "Restructured the team's code governance, previously treated as simple backup: new repositories with CloudFormation templates (infrastructure as code), conventional commits, and a feature/release branching flow, replacing direct commits to dev.",
     ],
   },
   {
@@ -82,7 +93,7 @@ const education = [
     degree: "Postgraduate Specialization in Data Science",
     institution: "Instituto Federal de São Paulo (IFSP), Campinas",
     period: "2021 - 2023",
-    note: "Coursework completed; capstone in progress",
+    note: "Coursework completed (capstone pending)",
   },
   {
     degree: "Technologist Degree in Systems Analysis and Development",
@@ -115,13 +126,13 @@ const languages = [
 ];
 ---
 
-<BaseLayout title="About" description="About Thales Pomari – Tech Lead Data Engineer and MLOps specialist.">
+<BaseLayout title="About" description="Thales Pomari — MLOps Engineer and Data Engineer, former Tech Lead: ML models in production, ~900 TB data lake, CDC pipelines with Kafka, and LLM productionization.">
 
   <section class="section">
     <div class="container">
       <p class="section-label">// About</p>
       <h1>Thales Pomari</h1>
-      <p class="subtitle">Tech Lead · Data Engineer · MLOps</p>
+      <p class="subtitle">MLOps Engineer · Data Engineering</p>
     </div>
   </section>
 
@@ -135,28 +146,19 @@ const languages = [
       </div>
       <div class="bio-content">
         <p>
-          I started my career as a researcher, publishing a
-          <a href="https://ieeexplore.ieee.org/document/8451227" target="_blank" rel="noopener">paper at IEEE ICIP (International Conference on Image Processing)</a>
-          before finding my path in data. I later grounded that foundation with a
-          <strong>Postgraduate Program in Data Science</strong>.
+          I started my career as a researcher: I'm the first author of a
+          <a href="https://ieeexplore.ieee.org/document/8451227" target="_blank" rel="noopener">deep learning paper published at IEEE ICIP 2018 (International Conference on Image Processing)</a>
+          on image splicing detection. That scientific foundation shaped the rigorous, data-driven approach I carry to this day — later consolidated with a
+          <strong>Postgraduate Specialization in Data Science</strong>.
         </p>
         <p>
-          Today I'm a Data Engineer and MLOps specialist, building data infrastructure
-          and AI systems that solve real business problems at scale. My work spans
-          credit scoring, telecom, food retail, and life insurance, which gives me a broad
-          perspective on how data challenges vary by domain and budget.
+          Today I'm an MLOps Engineer at Housecall Pro (US, remote), building the infrastructure that takes ML models from development to production: end-to-end automated pipelines, CI/CD for reproducible model releases, monitoring and alerting. Before that, as a Tech Lead at a multinational insurance company, I led a squad of 5 to 8 data engineers over a ~900 TB data lake — solution architecture, CDC pipelines with Kafka, distributed Spark ETLs — and led the data engineering and MLOps work of the company's first AI project, plus the regulatory integration with Open Insurance (SUSEP, the Brazilian insurance authority).
         </p>
         <p>
-          My current stack centers on <strong>Apache Spark + Delta Lake</strong> for large-scale
-          data processing, <strong>AWS</strong> as my main cloud platform, and
-          <strong>FastAPI + HuggingFace</strong> for AI-powered services.
+          My current stack: <strong>Apache Spark</strong> and <strong>Apache Kafka</strong> for distributed processing and streaming; <strong>AWS</strong> (Glue, S3, Lambda, DynamoDB, SageMaker) as my main platform, with solid experience on <strong>GCP</strong> (BigQuery, Dataproc, Dataflow); and productionization of open-source LLMs (Gemma, Llama, and Qwen), with model serving and prediction APIs.
         </p>
         <p>
-          My signature skill is <strong>learning fast and finding the right technology fit</strong>
-          for the time and budget of each problem. I don't over-engineer. I build what's needed,
-          when it's needed, at the right cost. As a tech leader, I also invest in the people side:
-          communicating clearly across teams, unblocking colleagues, and making sure technical
-          decisions are understood by everyone involved, not just engineers.
+          What sets me apart is learning fast and picking the right technology for each problem's timeline and budget — no over-engineering. From my time as a Tech Lead, I carry the human side of engineering: clear communication across teams, unblocking colleagues, and making sure technical decisions are understood by everyone involved, not just engineers.
         </p>
       </div>
     </div>
@@ -184,11 +186,15 @@ const languages = [
                   <span class="experience-location">{job.location}</span>
                 </div>
               </div>
-              <ul class="experience-bullets">
-                {job.bullets.map(bullet => (
-                  <li>{bullet}</li>
-                ))}
-              </ul>
+              {job.bullets.length > 0 ? (
+                <ul class="experience-bullets">
+                  {job.bullets.map(bullet => (
+                    <li>{bullet}</li>
+                  ))}
+                </ul>
+              ) : (
+                <p class="experience-description">{job.description}</p>
+              )}
             </div>
           ))}
         </div>
@@ -318,7 +324,7 @@ const languages = [
       <h2>Let's build something.</h2>
       <p style="color:var(--muted);margin: 1rem auto 2rem;">Available for data engineering and AI infrastructure projects.</p>
       <a href="mailto:hello@thalespomari.dev" class="btn btn-accent">Get in Touch →</a>
-      <p style="color:var(--muted);font-family:var(--font-mono);font-size:0.8rem;margin-top:1.5rem;">São Paulo, BR</p>
+      <p style="color:var(--muted);font-family:var(--font-mono);font-size:0.8rem;margin-top:1.5rem;">Campinas, SP, Brazil</p>
     </div>
   </section>
 
@@ -447,6 +453,11 @@ const languages = [
     position: absolute;
     left: 0;
     color: var(--accent);
+  }
+
+  .experience-description {
+    color: var(--muted);
+    line-height: 1.6;
   }
 
   .education-list {
