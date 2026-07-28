@@ -6,7 +6,7 @@ const caseStudies = [
     id: "01",
     name: "Data Lake e Observabilidade de ETLs em Escala",
     company: "Digiage Technologies · seguradora multinacional",
-    period: "06/2024 - Atual",
+    period: "06/2024 - 08/2026",
     problem: "Um data lake de ~900 TB em constante crescimento, com múltiplas squads gerando ETLs, tinha detecção de falhas puramente reativa — problemas só apareciam quando um usuário de negócio reportava dado incorreto ou ausente, muitas vezes dias depois da falha original.",
     stack: ["AWS", "Glue Workflows", "Glue Jobs", "Data Catalog", "Python", "Lambda", "CloudWatch"],
     solution: [
@@ -20,7 +20,7 @@ const caseStudies = [
     id: "02",
     name: "Pipeline CDC em Tempo Real para Dados de Apólices",
     company: "Digiage Technologies · seguradora multinacional",
-    period: "06/2024 - Atual",
+    period: "06/2024 - 08/2026",
     problem: "Dados cadastrais, de apólices e de reclamações precisavam chegar a sistemas de atendimento (CRM) em tempo próximo ao real, além de atender exigências regulatórias de troca de dados entre seguradoras (Open Insurance/SUSEP).",
     stack: ["Apache Kafka", "DynamoDB", "AWS", "APIs REST", "Open Insurance"],
     solution: [
@@ -32,6 +32,20 @@ const caseStudies = [
   },
   {
     id: "03",
+    name: "IA de Apoio à Decisão para Análise de Reclamações",
+    company: "Digiage Technologies · seguradora multinacional",
+    period: "06/2024 - 08/2026",
+    problem: "A companhia nunca havia colocado um projeto de IA em produção. A análise de reclamações dependia de consulta manual a dados espalhados por múltiplos sistemas (cliente, apólice, histórico de reclamações), sem apoio sistematizado à decisão do analista.",
+    stack: ["AWS", "Glue", "Python", "Power BI", "MLOps"],
+    solution: [
+      "Conduzi a engenharia de dados e o MLOps do projeto: agregação de dados de cliente, apólice e reclamação em uma visão unificada.",
+      "Integrei o pipeline com o modelo de classificação desenvolvido pelo time de ciência de dados.",
+      "Entreguei recomendações fundamentadas em dashboard Power BI, com os dados que sustentam cada sugestão.",
+    ],
+    impact: "Primeiro projeto de IA da companhia em produção, transformando a análise de reclamações de consulta manual em decisão apoiada por modelo.",
+  },
+  {
+    id: "04",
     name: "Pipeline de Produção Multi-LLM para Análise de Documentos",
     company: "Inovia · part-time",
     period: "05/2025 - Atual",
@@ -45,7 +59,7 @@ const caseStudies = [
     impact: "Estudo de pesquisa transformado em produto servindo clientes externos; tempo de revisão de código reduzido com fluxo assistido por IA generativa.",
   },
   {
-    id: "04",
+    id: "05",
     name: "Real-Time CDP para Operadora de Telecom com 80M de Clientes",
     company: "Lima Consulting",
     period: "04/2023 - 06/2024",
@@ -59,7 +73,7 @@ const caseStudies = [
     impact: "Plataforma de CDP em produção para uma base de ~80 milhões de clientes, com ingestão unificada e jornadas multicanal ativas.",
   },
   {
-    id: "05",
+    id: "06",
     name: "Migração de BigQuery para Spark: de Dias para Horas",
     company: "Boa Vista SCPC · atual Equifax Brasil",
     period: "03/2021 - 04/2023",
@@ -76,7 +90,7 @@ const caseStudies = [
 
 const projects = [
   {
-    id: "06",
+    id: "07",
     name: "AI Orchestrator",
     tagline: "Processamento assíncrono e distribuído de jobs com pipeline RAG",
     description: `Este projeto nasceu de um estudo de pesquisa: um Cientista de Dados ajustou o modelo e encontrou
@@ -101,13 +115,13 @@ const projects = [
 ];
 ---
 
-<BaseLayout title="Projetos" description="Projetos de engenharia de dados e IA por Thales Pomari.">
+<BaseLayout title="Projetos" description="Case studies de engenharia de dados, MLOps e IA por Thales Pomari.">
 
   <section class="section">
     <div class="container">
       <p class="section-label">// Projetos</p>
       <h1>O que construí.</h1>
-      <p class="page-sub">Projetos práticos em infraestrutura de dados, sistemas de IA e computação distribuída.</p>
+      <p class="page-sub">Case studies e projetos práticos em infraestrutura de dados, sistemas de IA e computação distribuída.</p>
     </div>
   </section>
 
