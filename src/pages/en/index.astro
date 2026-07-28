@@ -2,12 +2,12 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Home" description="Thales Pomari – Data Engineer & MLOps. I build data pipelines and AI infrastructure at scale.">
+<BaseLayout title="Home" description="Thales Pomari — MLOps Engineer & Data Engineer. Data pipelines and AI infrastructure at scale, from raw ingestion to ML models and LLMs in production.">
 
   <!-- HERO -->
   <section class="section hero-section">
     <div class="container">
-      <p class="section-label">// Data Engineer & MLOps</p>
+      <p class="section-label">// MLOps & Data Engineering</p>
       <h1>
         I build<br/>
         <span class="highlight">data pipelines</span><br/>
@@ -15,8 +15,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         at scale.
       </h1>
       <p class="hero-sub">
-        Spark, Delta Lake, AWS, FastAPI, HuggingFace.<br/>
-        From raw ingestion to production-ready models.
+        Spark, Kafka, AWS, GCP and LLMs in production.<br/>
+        From raw ingestion to models serving real customers.
       </p>
       <div class="hero-cta">
         <a href="/en/projects" class="btn btn-accent">View Projects</a>
@@ -30,50 +30,88 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     <div class="marquee-track">
       <span>Apache Spark</span>
       <span>·</span>
-      <span>Delta Lake</span>
+      <span>Apache Kafka</span>
       <span>·</span>
       <span>AWS</span>
       <span>·</span>
-      <span>FastAPI</span>
+      <span>GCP</span>
       <span>·</span>
-      <span>HuggingFace</span>
+      <span>Apache Airflow</span>
+      <span>·</span>
+      <span>Glue</span>
+      <span>·</span>
+      <span>BigQuery</span>
       <span>·</span>
       <span>Python</span>
       <span>·</span>
-      <span>Docker</span>
+      <span>Scala</span>
       <span>·</span>
-      <span>RAG</span>
+      <span>Docker</span>
       <span>·</span>
       <span>MLOps</span>
       <span>·</span>
-      <span>Redis</span>
+      <span>LLMs</span>
       <span>·</span>
-      <span>EC2</span>
+      <span>DynamoDB</span>
+      <span>·</span>
+      <span>SageMaker</span>
+      <span>·</span>
+      <span>CI/CD</span>
       <span>·</span>
       <span>Apache Spark</span>
       <span>·</span>
-      <span>Delta Lake</span>
+      <span>Apache Kafka</span>
       <span>·</span>
       <span>AWS</span>
       <span>·</span>
-      <span>FastAPI</span>
+      <span>GCP</span>
       <span>·</span>
-      <span>HuggingFace</span>
+      <span>Apache Airflow</span>
+      <span>·</span>
+      <span>Glue</span>
+      <span>·</span>
+      <span>BigQuery</span>
       <span>·</span>
       <span>Python</span>
       <span>·</span>
-      <span>Docker</span>
+      <span>Scala</span>
       <span>·</span>
-      <span>RAG</span>
+      <span>Docker</span>
       <span>·</span>
       <span>MLOps</span>
       <span>·</span>
-      <span>Redis</span>
+      <span>LLMs</span>
       <span>·</span>
-      <span>EC2</span>
+      <span>DynamoDB</span>
+      <span>·</span>
+      <span>SageMaker</span>
+      <span>·</span>
+      <span>CI/CD</span>
       <span>·</span>
     </div>
   </div>
+
+  <!-- NUMBERS -->
+  <section class="section numbers-section">
+    <div class="container numbers-grid">
+      <div class="number-item">
+        <p class="number-value">7+</p>
+        <p class="number-label">years of experience</p>
+      </div>
+      <div class="number-item">
+        <p class="number-value">~900 TB</p>
+        <p class="number-label">data lake</p>
+      </div>
+      <div class="number-item">
+        <p class="number-value">80M</p>
+        <p class="number-label">customers reached</p>
+      </div>
+      <div class="number-item">
+        <p class="number-value">4.5B</p>
+        <p class="number-label">rows processed</p>
+      </div>
+    </div>
+  </section>
 
   <!-- ABOUT TEASER -->
   <section class="section">
@@ -212,6 +250,39 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     to { transform: translateX(-50%); }
   }
 
+  /* Numbers */
+  .numbers-section {
+    border-bottom: 2px solid var(--border);
+    padding: 3.5rem 0;
+  }
+
+  .numbers-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  .number-item {
+    text-align: center;
+  }
+
+  .number-value {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: clamp(1.8rem, 4vw, 2.75rem);
+    color: var(--accent);
+    line-height: 1.1;
+  }
+
+  .number-label {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 0.5rem;
+  }
+
   /* About teaser */
   .about-teaser {
     display: grid;
@@ -254,6 +325,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     .contact-section {
       grid-template-columns: 1fr;
       gap: 2rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .numbers-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem 1rem;
     }
   }
 </style>
