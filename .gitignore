@@ -31,3 +31,6 @@ test-results/
 playwright-report/
 blob-report/
 playwright/.cache/
+
+# Notas de trabalho com informações sensíveis (contrato, cláusulas, etc.)
+textos-portfolio.md

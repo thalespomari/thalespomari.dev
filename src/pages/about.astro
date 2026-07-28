@@ -13,17 +13,28 @@ const skills = [
 
 const experience = [
   {
+    title: "Engenheiro de MLOps",
+    company: "Housecall Pro",
+    location: "Remoto (EUA)",
+    period: "08/2026 - Atual",
+    description: "Infraestrutura para deploy, monitoramento e gestão de modelos de ML em produção: pipelines automatizados ponta a ponta (feature engineering, deploy e avaliação contínua), CI/CD para releases reproduzíveis de modelos e monitoramento, logging e alerting — em parceria com cientistas de dados e times de produto.",
+    bullets: [],
+  },
+  {
     title: "Tech Lead - Engenharia de Dados & MLOps",
-    company: "Digiage Technologies, alocado em seguradora multinacional de grande porte (seguros de vida e investimentos)",
+    company: "Digiage Technologies, alocado em seguradora multinacional (seguros de vida e investimentos)",
     location: "Campinas, SP",
-    period: "06/2024 - Atual",
+    period: "06/2024 - 08/2026",
     bullets: [
-      "Lidero squad de 5-8 engenheiros de dados: gestão técnica e estratégica do time, arquitetura de soluções e gestão de projetos sobre data lake de ~900 TB (AWS, arquitetura medalhão, Glue Workflows, Jobs e Data Catalog).",
+      "Liderei squad de 5 a 8 engenheiros de dados: gestão técnica e estratégica do time, arquitetura de soluções e gestão de projetos sobre data lake de ~900 TB (AWS, arquitetura medallion, Glue Workflows, Jobs e Data Catalog).",
       "Liderei a integração de um novo sistema de venda e gestão de apólices e sinistros (produto de vida com investimento): revisão de regras de negócio, modelagem e mapeamento de dados e construção das ETLs até o padrão do lake.",
       "Mantive e evoluí pipeline CDC com Apache Kafka para dados cadastrais, apólices e reclamações, processados e disponibilizados em DynamoDB com APIs consumidas pelo CRM de atendimento.",
-      "Implantei observabilidade de ETLs do zero: biblioteca Python para jobs Glue com alertas via Lambda no Microsoft Teams (detalhes do erro + link para o CloudWatch), passando de detecção reativa por incidentes a resolução proativa, antes da percepção do usuário.",
-      "Conduzi a engenharia de dados e MLOps do primeiro projeto de IA da companhia, uma solução de apoio à decisão na análise de reclamações: agregação de dados de cliente, apólice e reclamação, integração com o modelo de classificação desenvolvido pelo time de ciência de dados e entrega da sugestão fundamentada em dashboard Power BI.",
+      "Implantei observability de ETLs do zero: biblioteca Python para jobs Glue com alertas via Lambda no Microsoft Teams (detalhes do erro + link para o CloudWatch), passando de detecção reativa por incidentes a resolução proativa, antes da percepção do usuário.",
+      "Conduzi a engenharia de dados e o MLOps do primeiro projeto de IA da companhia, uma solução de apoio à decisão na análise de reclamações: agregação de dados de cliente, apólice e reclamação, integração com o modelo de classificação do time de ciência de dados e entrega de recomendações fundamentadas em dashboard Power BI.",
       "Gerenciei a integração com o Open Insurance: recepção de dados de outras seguradoras e envio no padrão regulatório exigido pela SUSEP.",
+      "Habilitei a plataforma de ML para os cientistas de dados: SageMaker AI Notebooks com lifecycle scripts integrados ao data lake.",
+      "Criei do zero o deploy automatizado com AWS CodeBuild: backups, geração de artefatos, documentação automática de mudanças e publicação no S3, substituindo um processo totalmente manual.",
+      "Reestruturei a governança de código do time, antes tratado como simples backup: novos repositórios com templates CloudFormation (infrastructure as code), conventional commits e fluxo de branches feature/release, substituindo commits diretos na dev.",
     ],
   },
   {
@@ -85,7 +96,7 @@ const education = [
     note: "Disciplinas concluídas; TCC em andamento",
   },
   {
-    degree: "Graduação em Análise e Desenvolvimento de Sistemas",
+    degree: "Graduação Tecnológica em Análise e Desenvolvimento de Sistemas",
     institution: "Instituto Federal de São Paulo (IFSP) - Câmpus Campinas",
     period: "2016 - 2019",
     note: "",
@@ -115,13 +126,13 @@ const languages = [
 ];
 ---
 
-<BaseLayout title="Sobre" description="Thales Pomari – Tech Lead de Engenharia de Dados e especialista em MLOps.">
+<BaseLayout title="Sobre" description="Thales Pomari — MLOps Engineer e Data Engineer, ex-Tech Lead: modelos de ML em produção, data lake de ~900 TB, pipelines CDC com Kafka e produtização de LLMs.">
 
   <section class="section">
     <div class="container">
       <p class="section-label">// Sobre</p>
       <h1>Thales Pomari</h1>
-      <p class="subtitle">Tech Lead · Data Engineer · MLOps</p>
+      <p class="subtitle">MLOps Engineer · Data Engineering</p>
     </div>
   </section>
 
@@ -135,28 +146,19 @@ const languages = [
       </div>
       <div class="bio-content">
         <p>
-          Comecei minha carreira como pesquisador, publicando um
-          <a href="https://ieeexplore.ieee.org/document/8451227" target="_blank" rel="noopener">artigo no IEEE ICIP (International Conference on Image Processing)</a>
-          antes de encontrar meu caminho em dados. Mais tarde consolidei essa base com uma
+          Comecei a carreira como pesquisador: sou primeiro autor de um
+          <a href="https://ieeexplore.ieee.org/document/8451227" target="_blank" rel="noopener">artigo de deep learning publicado no IEEE ICIP 2018 (International Conference on Image Processing)</a>,
+          sobre detecção de image splicing. Essa base científica moldou a abordagem rigorosa e orientada a dados que carrego até hoje — e que depois consolidei com uma
           <strong>Especialização em Ciência de Dados</strong>.
         </p>
         <p>
-          Hoje sou Engenheiro de Dados e especialista em MLOps, construindo infraestrutura de dados
-          e sistemas de IA que resolvem problemas reais de negócio em escala. Meu trabalho passa por
-          credit scoring, telecom, varejo alimentício e seguros de vida, o que me dá uma perspectiva
-          ampla sobre como os desafios de dados variam por domínio e orçamento.
+          Hoje sou Engenheiro de MLOps na Housecall Pro (EUA, remoto), construindo a infraestrutura que leva modelos de ML do desenvolvimento à produção: pipelines automatizados ponta a ponta, CI/CD para releases reproduzíveis de modelos, monitoramento e alerting. Antes, como Tech Lead em uma seguradora multinacional, liderei um squad de 5 a 8 engenheiros de dados sobre um data lake de ~900 TB — arquitetura de soluções, pipelines CDC com Kafka, ETLs distribuídas em Spark — e conduzi a engenharia de dados e o MLOps do primeiro projeto de IA da companhia, além da integração regulatória com o Open Insurance (SUSEP).
         </p>
         <p>
-          Minha stack atual é centrada em <strong>Apache Spark + Delta Lake</strong> para processamento
-          de dados em larga escala, <strong>AWS</strong> como minha principal plataforma de nuvem, e
-          <strong>FastAPI + HuggingFace</strong> para serviços com IA.
+          Minha stack atual: <strong>Apache Spark</strong> e <strong>Apache Kafka</strong> para processamento distribuído e streaming; <strong>AWS</strong> (Glue, S3, Lambda, DynamoDB, SageMaker) como plataforma principal, com experiência sólida também em <strong>GCP</strong> (BigQuery, Dataproc, Dataflow); e produtização de LLMs open-source (Gemma, Llama e Qwen), com model serving e prediction APIs.
         </p>
         <p>
-          Minha habilidade de destaque é <strong>aprender rápido e encontrar a tecnologia certa</strong>
-          para o tempo e orçamento de cada problema. Não faço over-engineering. Construo o que é preciso,
-          quando é preciso, no custo certo. Como líder técnico, também invisto no lado humano:
-          comunicação clara entre times, desbloqueio de colegas e garantia de que decisões técnicas
-          sejam compreendidas por todos os envolvidos, não só pelos engenheiros.
+          Meu diferencial é aprender rápido e escolher a tecnologia certa para o prazo e o orçamento de cada problema — sem over-engineering. Da experiência como Tech Lead, carrego o lado humano da engenharia: comunicação clara entre times, desbloqueio de colegas e decisões técnicas compreendidas por todos os envolvidos, não só pelos engenheiros.
         </p>
       </div>
     </div>
@@ -184,11 +186,15 @@ const languages = [
                   <span class="experience-location">{job.location}</span>
                 </div>
               </div>
-              <ul class="experience-bullets">
-                {job.bullets.map(bullet => (
-                  <li>{bullet}</li>
-                ))}
-              </ul>
+              {job.bullets.length > 0 ? (
+                <ul class="experience-bullets">
+                  {job.bullets.map(bullet => (
+                    <li>{bullet}</li>
+                  ))}
+                </ul>
+              ) : (
+                <p class="experience-description">{job.description}</p>
+              )}
             </div>
           ))}
         </div>
@@ -318,7 +324,7 @@ const languages = [
       <h2>Vamos construir algo.</h2>
       <p style="color:var(--muted);margin: 1rem auto 2rem;">Disponível para projetos de engenharia de dados e infraestrutura de IA.</p>
       <a href="mailto:hello@thalespomari.dev" class="btn btn-accent">Entrar em Contato →</a>
-      <p style="color:var(--muted);font-family:var(--font-mono);font-size:0.8rem;margin-top:1.5rem;">São Paulo, BR</p>
+      <p style="color:var(--muted);font-family:var(--font-mono);font-size:0.8rem;margin-top:1.5rem;">Campinas, SP, Brazil</p>
     </div>
   </section>
 
@@ -447,6 +453,11 @@ const languages = [
     position: absolute;
     left: 0;
     color: var(--accent);
+  }
+
+  .experience-description {
+    color: var(--muted);
+    line-height: 1.6;
   }
 
   .education-list {
