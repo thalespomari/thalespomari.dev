@@ -4,87 +4,87 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const caseStudies = [
   {
     id: "01",
-    name: "Data Lake e Observabilidade de ETLs em Escala",
-    company: "Digiage Technologies · seguradora multinacional",
+    name: "Data Lake and ETL Observability at Scale",
+    company: "Digiage Technologies · multinational insurance company",
     period: "06/2024 - 08/2026",
-    problem: "Um data lake de ~900 TB em constante crescimento, com múltiplas squads gerando ETLs, tinha detecção de falhas puramente reativa — problemas só apareciam quando um usuário de negócio reportava dado incorreto ou ausente, muitas vezes dias depois da falha original.",
+    problem: "A constantly growing ~900 TB data lake, with multiple squads producing ETLs, had purely reactive failure detection — issues only surfaced when a business user reported incorrect or missing data, often days after the original failure.",
     stack: ["AWS", "Glue Workflows", "Glue Jobs", "Data Catalog", "Python", "Lambda", "CloudWatch"],
     solution: [
-      "Liderei squad de 5-8 engenheiros na arquitetura e governança do lake, com padronização de camadas (bronze/silver/gold) e dos Glue Workflows/Jobs.",
-      "Implantei observabilidade do zero: biblioteca Python compartilhada entre os jobs Glue, com alertas via Lambda no Microsoft Teams (detalhes do erro + link direto para o CloudWatch).",
-      "Padronizei o processo de triagem: qualquer falha chega ao time com contexto suficiente para diagnóstico imediato.",
+      "Led a squad of 5 to 8 engineers on lake architecture and governance, standardizing medallion layers and Glue Workflows/Jobs.",
+      "Built observability from scratch: a shared Python library for Glue jobs, with Lambda-triggered alerts in Microsoft Teams (error details + direct CloudWatch link).",
+      "Standardized triage: every failure reaches the team with enough context for immediate diagnosis.",
     ],
-    impact: "Detecção reativa por incidente → resolução proativa, antes da percepção do usuário final.",
+    impact: "Reactive incident-driven detection → proactive resolution, ahead of end-user perception.",
   },
   {
     id: "02",
-    name: "Pipeline CDC em Tempo Real para Dados de Apólices",
-    company: "Digiage Technologies · seguradora multinacional",
+    name: "Real-Time CDC Pipeline for Insurance Policy Data",
+    company: "Digiage Technologies · multinational insurance company",
     period: "06/2024 - 08/2026",
-    problem: "Dados cadastrais, de apólices e de reclamações precisavam chegar a sistemas de atendimento (CRM) em tempo próximo ao real, além de atender exigências regulatórias de troca de dados entre seguradoras (Open Insurance/SUSEP).",
-    stack: ["Apache Kafka", "DynamoDB", "AWS", "APIs REST", "Open Insurance"],
+    problem: "Customer, policy, and complaint data had to reach customer service systems (CRM) in near real time, while also meeting regulatory data-exchange requirements between insurers (Open Insurance/SUSEP).",
+    stack: ["Apache Kafka", "DynamoDB", "AWS", "REST APIs", "Open Insurance"],
     solution: [
-      "Mantive e evoluí um pipeline de Change Data Capture com Apache Kafka, capturando mudanças em dados cadastrais, apólices e reclamações direto na origem.",
-      "Disponibilizei os dados processados em DynamoDB, servidos via APIs consumidas pelo CRM de atendimento.",
-      "Gerenciei a integração com o Open Insurance: recepção de dados de outras seguradoras e envio no padrão regulatório exigido pela SUSEP.",
+      "Maintained and evolved a Change Data Capture pipeline with Apache Kafka, capturing changes to customer, policy, and complaint data at the source.",
+      "Served the processed data through DynamoDB, exposed via APIs consumed by the customer service CRM.",
+      "Managed the Open Insurance integration: receiving data from other insurers and submitting data in the regulatory standard required by SUSEP.",
     ],
-    impact: "Dados de apólices e reclamações em tempo próximo ao real para o atendimento; conformidade regulatória mantida na troca entre seguradoras.",
+    impact: "Near-real-time policy and complaint data for customer service; regulatory compliance maintained in insurer-to-insurer data exchange.",
   },
   {
     id: "03",
-    name: "IA de Apoio à Decisão para Análise de Reclamações",
-    company: "Digiage Technologies · seguradora multinacional",
+    name: "AI Decision Support for Complaint Analysis",
+    company: "Digiage Technologies · multinational insurance company",
     period: "06/2024 - 08/2026",
-    problem: "A companhia nunca havia colocado um projeto de IA em produção. A análise de reclamações dependia de consulta manual a dados espalhados por múltiplos sistemas (cliente, apólice, histórico de reclamações), sem apoio sistematizado à decisão do analista.",
+    problem: "The company had never put an AI project into production. Complaint analysis relied on manually querying data scattered across multiple systems (customer, policy, complaint history), with no systematic decision support for analysts.",
     stack: ["AWS", "Glue", "Python", "Power BI", "MLOps"],
     solution: [
-      "Conduzi a engenharia de dados e o MLOps do projeto: agregação de dados de cliente, apólice e reclamação em uma visão unificada.",
-      "Integrei o pipeline com o modelo de classificação desenvolvido pelo time de ciência de dados.",
-      "Entreguei recomendações fundamentadas em dashboard Power BI, com os dados que sustentam cada sugestão.",
+      "Led the data engineering and MLOps work: aggregating customer, policy, and complaint data into a unified view.",
+      "Integrated the pipeline with the classification model developed by the data science team.",
+      "Delivered grounded recommendations in a Power BI dashboard, with the supporting data behind each suggestion.",
     ],
-    impact: "Primeiro projeto de IA da companhia em produção, transformando a análise de reclamações de consulta manual em decisão apoiada por modelo.",
+    impact: "The company's first AI project in production, turning complaint analysis from manual lookup into model-supported decision-making.",
   },
   {
     id: "04",
-    name: "Pipeline de Produção Multi-LLM para Análise de Documentos",
+    name: "Multi-LLM Production Pipeline for Document Analysis",
     company: "Inovia · part-time",
-    period: "05/2025 - Atual",
-    problem: "Um estudo de ciência de dados havia validado hyperparameters promissores para análise de documentos com LLMs open-source, mas não existia caminho de produção: sem API de predição, sem orquestração de modelos/versões, sem infraestrutura para servir clientes externos.",
-    stack: ["Gemma", "Llama", "Qwen", "APIs de predição", "Cloud", "Claude"],
+    period: "05/2025 - Present",
+    problem: "A data science study had validated promising hyperparameters for document analysis with open-source LLMs, but there was no production path: no prediction API, no model/version orchestration, no infrastructure to serve external customers.",
+    stack: ["Gemma", "Llama", "Qwen", "Prediction APIs", "Cloud", "Claude"],
     solution: [
-      "Construí o pipeline de produção para os 3 modelos, incluindo orquestração de qual modelo/versão atende cada predição.",
-      "Desenvolvi APIs de consumo e gerenciamento de predições, desacoplando o time de ciência de dados da complexidade de infraestrutura.",
-      "Gerencio a infraestrutura em nuvem que serve os modelos a clientes externos e integrei IA generativa (Claude e agentes) ao fluxo de engenharia — code review, qualidade, segurança e testes.",
+      "Built the production pipeline for the 3 models (Gemma, Llama, and Qwen), including orchestration of which model/version serves each prediction.",
+      "Developed prediction serving and management APIs, decoupling the data science team from infrastructure complexity.",
+      "Manage the cloud infrastructure serving the models to external customers, and integrated generative AI (Claude and agents) into the engineering workflow — code review, quality, security, and testing.",
     ],
-    impact: "Estudo de pesquisa transformado em produto servindo clientes externos; tempo de revisão de código reduzido com fluxo assistido por IA generativa.",
+    impact: "A research study turned into a product serving external customers; code review time reduced with a generative-AI-assisted workflow.",
   },
   {
     id: "05",
-    name: "Real-Time CDP para Operadora de Telecom com 80M de Clientes",
+    name: "Real-Time CDP for a Telecom Carrier with 80M Customers",
     company: "Lima Consulting",
     period: "04/2023 - 06/2024",
-    problem: "Uma operadora de telecom de grande porte (~80 milhões de clientes) precisava consolidar dados de clientes, campanhas e segmentos vindos de fontes batch e streaming heterogêneas, e ativar jornadas de comunicação multicanal de forma confiável.",
+    problem: "A large telecom carrier (~80 million customers) needed to consolidate customer, campaign, and segment data from heterogeneous batch and streaming sources, and reliably activate multichannel communication journeys.",
     stack: ["Adobe Experience Platform", "XDM", "BigQuery", "Apache Kafka", "Adobe Journey Optimizer", "Airflow", "Redshift"],
     solution: [
-      "Modelei schemas XDM com schema evolution e construí ingestões batch (BigQuery/CSV) e em streaming, configurando Kafka do lado do cliente integrado ao AEP.",
-      "Criei jornadas de ativação multicanal no Adobe Journey Optimizer (e-mail, push e SMS), incluindo estratégias de IP warming de domínios.",
-      "Construí pipelines de dados complementares com Airflow e Redshift em ambientes AWS e GCP.",
+      "Modeled XDM schemas with schema evolution and built batch (BigQuery/CSV) and streaming ingestion, configuring client-side Kafka integrated with AEP.",
+      "Created multichannel activation journeys in Adobe Journey Optimizer (email, push, and SMS), including domain IP warming strategies.",
+      "Built complementary data pipelines with Airflow and Redshift across AWS and GCP environments.",
     ],
-    impact: "Plataforma de CDP em produção para uma base de ~80 milhões de clientes, com ingestão unificada e jornadas multicanal ativas.",
+    impact: "A CDP platform in production for a ~80 million customer base, with unified ingestion and active multichannel journeys.",
   },
   {
     id: "06",
-    name: "Migração de BigQuery para Spark: de Dias para Horas",
-    company: "Boa Vista SCPC · atual Equifax Brasil",
+    name: "BigQuery to Spark Migration: From Days to Hours",
+    company: "Boa Vista SCPC · now Equifax Brazil",
     period: "03/2021 - 04/2023",
-    problem: "O cálculo de variáveis de similaridade e segmentação rodava em BigQuery com execuções que levavam dias, sujeitas a falhas e reinícios frequentes, gerando custos cloud elevados e atrasando a disponibilização de variáveis para os modelos.",
+    problem: "Similarity and segmentation variable calculations ran on BigQuery with executions that took days, prone to frequent failures and restarts, driving up cloud costs and delaying variable availability for models.",
     stack: ["BigQuery", "Apache Spark", "Scala", "Dataproc", "Flask", "Airflow", "GCP"],
     solution: [
-      "Refatorei o cálculo de variáveis de BigQuery para Spark/Scala, rodando em cluster Dataproc de 10 a 15 nós.",
-      "Criei uma Feature Store interna para cadastro e gestão de modelos e variáveis, com autenticação OAuth 2.0 integrada ao GCP.",
-      "Desenvolvi APIs REST em Flask e DAGs no Airflow para orquestrar o processamento, com deploys via CI/CD.",
+      "Refactored the variable calculations from BigQuery to Spark/Scala, running on a 10 to 15 node Dataproc cluster.",
+      "Created an internal Feature Store for registering and managing models and variables, with OAuth 2.0 authentication integrated with GCP.",
+      "Developed REST APIs in Flask and Airflow DAGs to orchestrate processing, with CI/CD deployments.",
     ],
-    impact: "Tempo de execução reduzido de dias (com falhas e reinícios) para cerca de 4 horas, com corte de custos cloud.",
+    impact: "Runtime reduced from days (with failures and restarts) to about 4 hours, cutting cloud costs.",
   },
 ];
 
@@ -92,36 +92,35 @@ const projects = [
   {
     id: "07",
     name: "AI Orchestrator",
-    tagline: "Processamento assíncrono e distribuído de jobs com pipeline RAG",
-    description: `Este projeto nasceu de um estudo de pesquisa: um Cientista de Dados ajustou o modelo e encontrou
-      hyperparameters que funcionavam bem. Meu trabalho foi pegar esse estudo e transformá-lo em produto.
-      O resultado é um orquestrador distribuído que gerencia jobs e workers de forma assíncrona através
-      de uma API REST construída com FastAPI, usando Redis como state store e fila de jobs. Os workers processam
-      documentos PDF através de um pipeline RAG e reportam os resultados de volta ao orquestrador.
-      Tudo roda em Docker, gerenciado por um serviço systemd na AWS EC2 que inicia automaticamente no boot.
-      O próximo passo é um painel de monitoramento para que qualquer pessoa do time possa checar execuções de jobs,
-      status e uso de recursos sem precisar acessar a API diretamente.`,
-    status: "Em Andamento",
-    statusKey: "in-progress",
+    tagline: "Distributed async job processing with RAG pipeline",
+    description: `This project started from a research study: a Data Scientist tuned the model and found
+      hyperparameters that worked well. My job was to take that study and build it into a product.
+      The result is a distributed orchestrator that manages jobs and workers asynchronously through
+      a REST API built with FastAPI, using Redis as the state store and job queue. Workers process
+      PDF documents through a RAG pipeline and report results back to the orchestrator.
+      Everything runs in Docker, managed by a systemd service on AWS EC2 that starts automatically on boot.
+      Next step is a monitoring panel so anyone on the team can check job executions, statuses,
+      and resource usage without touching the API directly.`,
+    status: "In Progress",
     tags: ["FastAPI", "Redis", "RAG", "Docker", "EC2", "Python", "AWS"],
     highlights: [
-      "API REST assíncrona com FastAPI",
-      "Redis como state store + fila de jobs",
-      "Processamento de PDFs via pipeline RAG",
-      "Docker + systemd na AWS EC2",
-      "Painel de monitoramento (em breve)",
+      "Async REST API with FastAPI",
+      "Redis as state store + job queue",
+      "PDF processing via RAG pipeline",
+      "Docker + systemd on AWS EC2",
+      "Dashboard panel for monitoring (coming soon)",
     ],
   },
 ];
 ---
 
-<BaseLayout title="Projetos" description="Case studies de engenharia de dados, MLOps e IA por Thales Pomari.">
+<BaseLayout title="Projects" description="Data engineering, MLOps, and AI case studies by Thales Pomari.">
 
   <section class="section">
     <div class="container">
-      <p class="section-label">// Projetos</p>
-      <h1>O que construí.</h1>
-      <p class="page-sub">Case studies e projetos práticos em infraestrutura de dados, sistemas de IA e computação distribuída.</p>
+      <p class="section-label">// Projects</p>
+      <h1>What I've built.</h1>
+      <p class="page-sub">Case studies and hands-on projects in data infrastructure, AI systems, and distributed computing.</p>
     </div>
   </section>
 
@@ -141,12 +140,12 @@ const projects = [
 
           <div class="case-body">
             <div class="case-block">
-              <p class="section-label">// Problema</p>
+              <p class="section-label">// Problem</p>
               <p class="case-text">{cs.problem}</p>
             </div>
 
             <div class="case-block">
-              <p class="section-label">// Solução</p>
+              <p class="section-label">// Solution</p>
               <ul class="case-list">
                 {cs.solution.map(s => (
                   <li><span class="case-arrow">→</span> {s}</li>
@@ -155,7 +154,7 @@ const projects = [
             </div>
 
             <div class="case-block case-impact">
-              <p class="section-label">// Impacto</p>
+              <p class="section-label">// Impact</p>
               <p class="case-text">{cs.impact}</p>
             </div>
 
@@ -174,14 +173,14 @@ const projects = [
 
   <section class="section">
     <div class="container">
-      <p class="section-label">// Projetos Pessoais</p>
+      <p class="section-label">// Personal Projects</p>
       {projects.map(project => (
         <article class="project-card">
           <div class="project-header">
             <span class="project-index">{project.id}</span>
             <div>
               <div class="project-meta">
-                <span class="project-status" data-status={project.statusKey}>
+                <span class="project-status" data-status={project.status.toLowerCase().replace(/\s+/g, '-')}>
                   {project.status}
                 </span>
               </div>
@@ -194,7 +193,7 @@ const projects = [
             <p class="project-description">{project.description}</p>
 
             <div class="project-highlights">
-              <p class="section-label" style="margin-bottom:0.75rem;">// Principais Funcionalidades</p>
+              <p class="section-label" style="margin-bottom:0.75rem;">// Key Features</p>
               <ul>
                 {project.highlights.map(h => (
                   <li>
@@ -213,10 +212,10 @@ const projects = [
         </article>
       ))}
 
-      <!-- Placeholder para futuros projetos -->
+      <!-- Placeholder for future projects -->
       <div class="more-coming">
-        <p class="section-label">// Mais em breve</p>
-        <p>Mais projetos serão documentados aqui conforme atingirem um estado compartilhável.</p>
+        <p class="section-label">// More coming</p>
+        <p>More projects will be documented here as they reach a shareable state.</p>
       </div>
     </div>
   </section>
