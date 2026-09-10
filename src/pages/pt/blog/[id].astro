@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -20,7 +20,7 @@ const { Content } = await render(post);
 
     <header class="post-header section">
       <div class="container">
-        <a href="/blog" class="back-link">← Voltar ao Blog</a>
+        <a href="/pt/blog" class="back-link">← Voltar ao Blog</a>
         <div class="post-meta">
           <time datetime={post.data.date.toISOString()} class="post-date">
             {post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
@@ -44,8 +44,8 @@ const { Content } = await render(post);
 
     <footer class="section">
       <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
-        <a href="/blog" class="btn">← Todos os Artigos</a>
-        <a href="/#contact" class="btn btn-accent">Trabalhar comigo →</a>
+        <a href="/pt/blog" class="btn">← Todos os Artigos</a>
+        <a href="/pt/#contact" class="btn btn-accent">Trabalhar comigo →</a>
       </div>
     </footer>
 
