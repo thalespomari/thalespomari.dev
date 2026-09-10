@@ -19,7 +19,7 @@ const pathWithoutBase =
     : Astro.url.pathname;
 const currentPath =
   pathWithoutBase.length > 1 ? pathWithoutBase.replace(/\/$/, '') : pathWithoutBase;
-const locale = Astro.currentLocale ?? 'pt';
+const locale = Astro.currentLocale ?? 'en';
 
 // Mapeia a rota atual para o equivalente no outro idioma.
 // Blog é exclusivo em PT (fora de escopo desta história); a partir do
