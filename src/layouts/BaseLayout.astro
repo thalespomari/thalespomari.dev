@@ -53,6 +53,29 @@ const blogHref = '/pt/blog';
 const isHomeActive = currentPath === homeHref;
 const isAboutActive = currentPath === aboutHref;
 const isProjectsActive = currentPath === projectsHref;
+
+// hreflang/canonical: cada página é canônica de si mesma (self-referencing
+// canonical) — canonicalizar as páginas PT para a versão EN as tiraria do
+// índice de busca por engano (Google as trataria como duplicatas a ignorar),
+// o que não é o objetivo aqui: EN e PT são traduções, não conteúdo
+// duplicado. "EN como padrão" (AC9) é expresso via hreflang="x-default"
+// apontando para a versão EN, não via canonical cross-idioma.
+// Páginas sem equivalente no outro idioma (blog, exclusivo em PT — fora de
+// escopo da bilinguização) não recebem tags hreflang de alternância, só o
+// canonical de si mesmas.
+const enEquivalentPath = locale === 'en' ? currentPath : ptToEn[currentPath];
+const ptEquivalentPath = locale === 'pt' ? currentPath : enToPt[currentPath];
+const hasBilingualEquivalent = enEquivalentPath !== undefined && ptEquivalentPath !== undefined;
+
+const siteOrigin = (Astro.site ?? new URL('https://thalespomari.dev')).origin;
+// Reaplica o `base` (removido de currentPath acima) na URL absoluta — no
+// build de fallback do GitHub Pages (base = '/thalespomari.dev/'), a URL
+// real inclui esse segmento; sem isso o canonical/hreflang aponta para uma
+// URL que não existe nesse modo (mesmo risco de `base` documentado no
+// CLAUDE.md para leitura de Astro.url.pathname, aqui na escrita de hrefs).
+const basePrefix = base === '/' ? '' : base.replace(/\/$/, '');
+const absoluteUrl = (path: string) => `${siteOrigin}${basePrefix}${path}`;
+const canonicalUrl = absoluteUrl(currentPath);
 ---
 
 <!doctype html>
@@ -68,6 +91,15 @@ const isProjectsActive = currentPath === projectsHref;
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <!-- Idioma: EN é o default (task-001) -->
+    <link rel="canonical" href={canonicalUrl} />
+    {hasBilingualEquivalent && (
+      <>
+        <link rel="alternate" hreflang="en" href={absoluteUrl(enEquivalentPath)} />
+        <link rel="alternate" hreflang="pt" href={absoluteUrl(ptEquivalentPath)} />
+        <link rel="alternate" hreflang="x-default" href={absoluteUrl(enEquivalentPath)} />
+      </>
+    )}
   </head>
   <body>
     <nav class="nav">
