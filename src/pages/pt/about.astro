@@ -2,102 +2,102 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const skills = [
-  { category: "Languages", items: ["Python", "Scala", "Java", "SQL", "Shell Script"] },
-  { category: "Distributed Data & Streaming", items: ["Apache Kafka", "Apache Spark", "Dataflow", "Hive", "MapReduce"] },
-  { category: "Orchestration", items: ["Apache Airflow", "AWS Glue Workflows"] },
+  { category: "Linguagens", items: ["Python", "Scala", "Java", "SQL", "Shell Script"] },
+  { category: "Dados Distribuídos & Streaming", items: ["Apache Kafka", "Apache Spark", "Dataflow", "Hive", "MapReduce"] },
+  { category: "Orquestração", items: ["Apache Airflow", "AWS Glue Workflows"] },
   { category: "AWS", items: ["Glue", "S3", "Lambda", "DynamoDB", "RDS", "SageMaker", "CloudWatch", "CodeBuild", "CloudFormation"] },
   { category: "GCP", items: ["BigQuery", "Dataproc", "Dataflow", "Bigtable", "GKE/Kubernetes", "Cloud Storage", "Cloud Build"] },
-  { category: "MLOps", items: ["Model and LLM Productionization", "CI/CD", "Observability and Alerting", "Model Serving", "Prediction APIs"] },
-  { category: "Applied AI", items: ["Claude and Code Agents", "Gemma", "Llama", "Qwen"] },
+  { category: "MLOps", items: ["Produtização de Modelos e LLMs", "CI/CD", "Observabilidade e Alerting", "Model Serving", "APIs de Predição"] },
+  { category: "IA Aplicada", items: ["Claude e Agentes de Código", "Gemma", "Llama", "Qwen"] },
 ];
 
 const experience = [
   {
-    title: "MLOps Engineer",
+    title: "Engenheiro de MLOps",
     company: "Housecall Pro",
-    location: "Remote (US)",
-    period: "08/2026 - Present",
-    description: "Infrastructure to deploy, monitor, and manage ML models in production: end-to-end automated pipelines (feature engineering, deployment, and continuous evaluation), CI/CD for reproducible model releases, and monitoring, logging, and alerting — partnering with data scientists and product teams.",
+    location: "Remoto (EUA)",
+    period: "08/2026 - Atual",
+    description: "Infraestrutura para deploy, monitoramento e gestão de modelos de ML em produção: pipelines automatizados ponta a ponta (feature engineering, deploy e avaliação contínua), CI/CD para releases reproduzíveis de modelos e monitoramento, logging e alerting — em parceria com cientistas de dados e times de produto.",
     bullets: [],
   },
   {
-    title: "Tech Lead - Data Engineering & MLOps",
-    company: "Digiage Technologies, assigned to a multinational insurance company (life insurance and investment products)",
+    title: "Tech Lead - Engenharia de Dados & MLOps",
+    company: "Digiage Technologies, alocado em seguradora multinacional (seguros de vida e investimentos)",
     location: "Campinas, SP",
     period: "06/2024 - 08/2026",
     bullets: [
-      "Led a squad of 5 to 8 data engineers: technical and strategic team management, solution architecture, and project management over a ~900 TB data lake (AWS, medallion architecture, Glue Workflows, Jobs, and Data Catalog).",
-      "Led the integration of a new policy sales and claims management system (life insurance with investment product): business rules review, data modeling and mapping, and ETL development into the lake standard.",
-      "Maintained and evolved a CDC pipeline with Apache Kafka for customer, policy, and complaint data, processed and served through DynamoDB with APIs consumed by the customer service CRM.",
-      "Deployed ETL observability from scratch: a Python library for Glue jobs with Lambda-triggered alerts in Microsoft Teams (error details and CloudWatch log link), moving the team from incident-driven detection to proactive resolution before users noticed issues.",
-      "Led the data engineering and MLOps work of the company's first AI project, a decision-support solution for claims analysis: aggregating customer, policy, and complaint data, integrating with the classification model developed by the data science team, and delivering grounded recommendations in a Power BI dashboard.",
-      "Managed the Open Insurance integration: receiving data from other insurers and submitting data in the regulatory standard required by SUSEP.",
-      "Enabled the ML platform for data scientists: SageMaker AI Notebooks with lifecycle scripts integrated with the data lake.",
-      "Created automated deployment from scratch with AWS CodeBuild: backups, artifact generation, automatic change documentation, and publishing to S3, replacing a fully manual process.",
-      "Restructured the team's code governance, previously treated as simple backup: new repositories with CloudFormation templates (infrastructure as code), conventional commits, and a feature/release branching flow, replacing direct commits to dev.",
+      "Liderei squad de 5 a 8 engenheiros de dados: gestão técnica e estratégica do time, arquitetura de soluções e gestão de projetos sobre data lake de ~900 TB (AWS, arquitetura medallion, Glue Workflows, Jobs e Data Catalog).",
+      "Liderei a integração de um novo sistema de venda e gestão de apólices e sinistros (produto de vida com investimento): revisão de regras de negócio, modelagem e mapeamento de dados e construção das ETLs até o padrão do lake.",
+      "Mantive e evoluí pipeline CDC com Apache Kafka para dados cadastrais, apólices e reclamações, processados e disponibilizados em DynamoDB com APIs consumidas pelo CRM de atendimento.",
+      "Implantei observability de ETLs do zero: biblioteca Python para jobs Glue com alertas via Lambda no Microsoft Teams (detalhes do erro + link para o CloudWatch), passando de detecção reativa por incidentes a resolução proativa, antes da percepção do usuário.",
+      "Conduzi a engenharia de dados e o MLOps do primeiro projeto de IA da companhia, uma solução de apoio à decisão na análise de reclamações: agregação de dados de cliente, apólice e reclamação, integração com o modelo de classificação do time de ciência de dados e entrega de recomendações fundamentadas em dashboard Power BI.",
+      "Gerenciei a integração com o Open Insurance: recepção de dados de outras seguradoras e envio no padrão regulatório exigido pela SUSEP.",
+      "Habilitei a plataforma de ML para os cientistas de dados: SageMaker AI Notebooks com lifecycle scripts integrados ao data lake.",
+      "Criei do zero o deploy automatizado com AWS CodeBuild: backups, geração de artefatos, documentação automática de mudanças e publicação no S3, substituindo um processo totalmente manual.",
+      "Reestruturei a governança de código do time, antes tratado como simples backup: novos repositórios com templates CloudFormation (infrastructure as code), conventional commits e fluxo de branches feature/release, substituindo commits diretos na dev.",
     ],
   },
   {
-    title: "MLOps Engineer (part-time)",
+    title: "Engenheiro de MLOps (part-time)",
     company: "Inovia",
-    location: "Remote",
-    period: "05/2025 - Present",
+    location: "Remoto",
+    period: "05/2025 - Atual",
     bullets: [
-      "Built the production pipeline for 3 open-source LLMs (Gemma, Llama, and Qwen) to productionize a document analysis solution.",
-      "Developed prediction serving and management APIs, with model and version orchestration.",
-      "Manage the cloud infrastructure serving models to external customers.",
-      "Integrate generative AI into the engineering workflow (Claude and agents): code review, code quality and security, code standardization, and logging, reducing review time and documentation dependency. Implemented unit and end-to-end tests with Claude assistance.",
+      "Construí o pipeline de produção de 3 LLMs open-source (Gemma, Llama e Qwen) para produtizar solução de análise de documentos.",
+      "Desenvolvi APIs de consumo e gerenciamento de predições, com orquestração de modelos e versões.",
+      "Gerencio a infraestrutura em nuvem para servir os modelos a clientes externos.",
+      "Integro IA generativa ao fluxo de engenharia (Claude e agentes): code review, code quality e security, padronização de código e logging, reduzindo tempo de revisão e dependência de documentação. Implantei testes unitários e de ponta a ponta com apoio do Claude.",
     ],
   },
   {
-    title: "Data Engineer",
+    title: "Engenheiro de Dados",
     company: "Lima Consulting",
     location: "Campinas, SP",
     period: "04/2023 - 06/2024",
     bullets: [
-      "Implemented and maintained CDPs (Adobe Experience Platform / Real-Time CDP) for large telecom, retail, and banking companies; the main project served a telecom carrier with roughly 80 million customers.",
-      "Modeled XDM schemas with schema evolution and built batch data ingestion (BigQuery connection and CSV file mapping) and streaming ingestion, configuring client-side Kafka integrated with AEP.",
-      "Used AEP APIs to query customer, campaign, and segment data.",
-      "Developed analytical reports through Query Service (PostgreSQL with nested JSON structures): parsing data to track each customer's campaign touchpoints, reproducing Adobe's native graphical view with more precise filters.",
-      "Created multichannel activation journeys in Adobe Journey Optimizer (email, push, and SMS), including domain IP warming strategies, and contributed to the native Zenvia-Adobe integration for SMS delivery, specifying endpoints and documenting the data exchange between systems.",
-      "Built data pipelines with Airflow and Redshift across AWS and GCP environments.",
+      "Implantei e mantive CDP (Adobe Experience Platform / Real-Time CDP) para grandes empresas de telecom, varejo e setor bancário; no principal projeto, operadora de telecom com cerca de 80 milhões de clientes.",
+      "Modelei schemas XDM com schema evolution e construí ingestões de dados em batch (conexão com BigQuery e mapeamento de arquivos CSV) e em streaming, configurando o Kafka do lado do cliente integrado ao AEP.",
+      "Utilizei as APIs do AEP para consulta de dados de clientes, campanhas e segmentos.",
+      "Desenvolvi relatórios analíticos via Query Service (PostgreSQL com estruturas JSON aninhadas): parsing para rastrear, em nível de cliente, os pontos de contato de cada campanha, reproduzindo a visão gráfica nativa da Adobe com filtros mais precisos.",
+      "Criei jornadas de ativação multicanal no Adobe Journey Optimizer (e-mail, push e SMS), incluindo estratégias de IP warming de domínios, e participei da integração nativa entre Zenvia e Adobe para envio de SMS, especificando endpoints e documentando a troca de informações entre os sistemas.",
+      "Construí pipelines de dados com Airflow e Redshift em ambientes AWS e GCP.",
     ],
   },
   {
-    title: "Data Engineer - MLOps",
-    company: "Boa Vista SCPC, now Equifax Brazil",
+    title: "Engenheiro de Dados - MLOps",
+    company: "Boa Vista SCPC, atual Equifax Brasil",
     location: "Campinas, SP",
     period: "03/2021 - 04/2023",
     bullets: [
-      "Created an internal Feature Store for registering and managing models and variables (SQL and metadata, with edit and delete), with OAuth 2.0 authentication integrated with GCP and a Bootstrap frontend.",
-      "Refactored similarity and segmentation variable calculations from BigQuery to Spark/Scala on Dataproc (10 to 15 node cluster): runtime reduced from days, with failures and restarts, to about 4 hours, cutting cloud costs.",
-      "Developed REST APIs in Flask and Airflow DAGs with Python jobs for data processing and model and variable calculation.",
-      "Deployed through CI/CD and maintained projects on GCP: Kubernetes, Dataflow, Bigtable, BigQuery, and Cloud Storage.",
+      "Criei uma Feature Store interna para cadastro e gestão de modelos e variáveis (SQL e metadados, com edição e exclusão), com autenticação OAuth 2.0 integrada ao GCP e frontend em Bootstrap.",
+      "Refatorei o cálculo de variáveis de similaridade e segmentação de BigQuery para Spark/Scala em Dataproc (cluster de 10-15 nós): execução reduzida de dias, com falhas e reinícios, para cerca de 4 horas, com corte de custos cloud.",
+      "Desenvolvi APIs REST em Flask e DAGs no Airflow com jobs em Python para processamento de dados e cálculo de modelos e variáveis.",
+      "Realizei deploys via CI/CD e mantive projetos no GCP: Kubernetes, Dataflow, Bigtable, BigQuery e Cloud Storage.",
     ],
   },
   {
-    title: "Data Engineer",
+    title: "Engenheiro de Dados",
     company: "Digiage Technologies",
     location: "Campinas, SP",
     period: "06/2019 - 03/2021",
     bullets: [
-      "Developed Java MapReduce routines, running on on-premise servers, to generate prepaid and postpaid customer indicators for the marketing team of a major telecom carrier, processing ETLs of roughly 4.5 billion rows, with per-environment algorithm tuning.",
-      "Supported business rule definitions, mapping the paths between tables to reach the information requested by the marketing team.",
-      "Performed loads and optimizations on Hive and Greenplum through Apache Sqoop, produced analyses and reports, and maintained SAS scripts.",
+      "Desenvolvi rotinas MapReduce em Java, executadas em servidores on-premise, para gerar indicadores de clientes pré e pós-pagos para o time de marketing de uma grande operadora de telecom, processando ETLs de cerca de 4,5 bilhões de linhas, com tuning do algoritmo por ambiente.",
+      "Apoiei a definição de regras de negócio, mapeando os caminhos entre as tabelas para chegar às informações solicitadas pelo time de marketing.",
+      "Realizei cargas e otimizações em Hive e Greenplum via Apache Sqoop, gerei análises e relatórios e mantive scripts SAS.",
     ],
   },
 ];
 
 const education = [
   {
-    degree: "Postgraduate Specialization in Data Science",
-    institution: "Instituto Federal de São Paulo (IFSP), Campinas",
+    degree: "Especialização em Ciência de Dados (pós-graduação)",
+    institution: "Instituto Federal de São Paulo (IFSP) - Câmpus Campinas",
     period: "2021 - 2023",
-    note: "Coursework completed (capstone pending)",
+    note: "Disciplinas concluídas; TCC em andamento",
   },
   {
-    degree: "Technologist Degree in Systems Analysis and Development",
-    institution: "Instituto Federal de São Paulo (IFSP), Campinas",
+    degree: "Graduação Tecnológica em Análise e Desenvolvimento de Sistemas",
+    institution: "Instituto Federal de São Paulo (IFSP) - Câmpus Campinas",
     period: "2016 - 2019",
     note: "",
   },
@@ -106,7 +106,7 @@ const education = [
 const certifications = [
   {
     name: "Adobe Certified Expert - Adobe Real-Time CDP",
-    detail: "Exams AD0-E600 and AD7-E601",
+    detail: "Exames AD0-E600 e AD7-E601",
   },
 ];
 
@@ -114,23 +114,23 @@ const publications = [
   {
     authors: "POMARI, T.; RUPPERT, G.; REZENDE, E.; ROCHA, A.; CARVALHO, T.",
     title: "Image Splicing Detection Through Illumination Inconsistencies and Deep Learning",
-    venue: "25th IEEE International Conference on Image Processing (ICIP), Athens, Greece, 2018, pp. 3788-3792",
+    venue: "25th IEEE International Conference on Image Processing (ICIP), Atenas, Grécia, 2018, pp. 3788-3792",
     doi: "10.1109/ICIP.2018.8451227",
     doiUrl: "https://doi.org/10.1109/ICIP.2018.8451227",
   },
 ];
 
 const languages = [
-  { name: "Portuguese", level: "Native" },
-  { name: "English", level: "Advanced" },
+  { name: "Português", level: "Nativo" },
+  { name: "Inglês", level: "Avançado" },
 ];
 ---
 
-<BaseLayout title="About" description="Thales Pomari — MLOps Engineer and Data Engineer, former Tech Lead: ML models in production, ~900 TB data lake, CDC pipelines with Kafka, and LLM productionization.">
+<BaseLayout title="Sobre" description="Thales Pomari — MLOps Engineer e Data Engineer, ex-Tech Lead: modelos de ML em produção, data lake de ~900 TB, pipelines CDC com Kafka e produtização de LLMs.">
 
   <section class="section">
     <div class="container">
-      <p class="section-label">// About</p>
+      <p class="section-label">// Sobre</p>
       <h1>Thales Pomari</h1>
       <p class="subtitle">MLOps Engineer · Data Engineering</p>
     </div>
@@ -146,19 +146,19 @@ const languages = [
       </div>
       <div class="bio-content">
         <p>
-          I started my career as a researcher: I'm the first author of a
-          <a href="https://ieeexplore.ieee.org/document/8451227" target="_blank" rel="noopener">deep learning paper published at IEEE ICIP 2018 (International Conference on Image Processing)</a>
-          on image splicing detection. That scientific foundation shaped the rigorous, data-driven approach I carry to this day — later consolidated with a
-          <strong>Postgraduate Specialization in Data Science</strong>.
+          Comecei a carreira como pesquisador: sou primeiro autor de um
+          <a href="https://ieeexplore.ieee.org/document/8451227" target="_blank" rel="noopener">artigo de deep learning publicado no IEEE ICIP 2018 (International Conference on Image Processing)</a>,
+          sobre detecção de image splicing. Essa base científica moldou a abordagem rigorosa e orientada a dados que carrego até hoje — e que depois consolidei com uma
+          <strong>Especialização em Ciência de Dados</strong>.
         </p>
         <p>
-          Today I'm an MLOps Engineer at Housecall Pro (US, remote), building the infrastructure that takes ML models from development to production: end-to-end automated pipelines, CI/CD for reproducible model releases, monitoring and alerting. Before that, as a Tech Lead at a multinational insurance company, I led a squad of 5 to 8 data engineers over a ~900 TB data lake — solution architecture, CDC pipelines with Kafka, distributed Spark ETLs — and led the data engineering and MLOps work of the company's first AI project, plus the regulatory integration with Open Insurance (SUSEP, the Brazilian insurance authority).
+          Hoje sou Engenheiro de MLOps na Housecall Pro (EUA, remoto), construindo a infraestrutura que leva modelos de ML do desenvolvimento à produção: pipelines automatizados ponta a ponta, CI/CD para releases reproduzíveis de modelos, monitoramento e alerting. Antes, como Tech Lead em uma seguradora multinacional, liderei um squad de 5 a 8 engenheiros de dados sobre um data lake de ~900 TB — arquitetura de soluções, pipelines CDC com Kafka, ETLs distribuídas em Spark — e conduzi a engenharia de dados e o MLOps do primeiro projeto de IA da companhia, além da integração regulatória com o Open Insurance (SUSEP).
         </p>
         <p>
-          My current stack: <strong>Apache Spark</strong> and <strong>Apache Kafka</strong> for distributed processing and streaming; <strong>AWS</strong> (Glue, S3, Lambda, DynamoDB, SageMaker) as my main platform, with solid experience on <strong>GCP</strong> (BigQuery, Dataproc, Dataflow); and productionization of open-source LLMs (Gemma, Llama, and Qwen), with model serving and prediction APIs.
+          Minha stack atual: <strong>Apache Spark</strong> e <strong>Apache Kafka</strong> para processamento distribuído e streaming; <strong>AWS</strong> (Glue, S3, Lambda, DynamoDB, SageMaker) como plataforma principal, com experiência sólida também em <strong>GCP</strong> (BigQuery, Dataproc, Dataflow); e produtização de LLMs open-source (Gemma, Llama e Qwen), com model serving e prediction APIs.
         </p>
         <p>
-          What sets me apart is learning fast and picking the right technology for each problem's timeline and budget — no over-engineering. From my time as a Tech Lead, I carry the human side of engineering: clear communication across teams, unblocking colleagues, and making sure technical decisions are understood by everyone involved, not just engineers.
+          Meu diferencial é aprender rápido e escolher a tecnologia certa para o prazo e o orçamento de cada problema — sem over-engineering. Da experiência como Tech Lead, carrego o lado humano da engenharia: comunicação clara entre times, desbloqueio de colegas e decisões técnicas compreendidas por todos os envolvidos, não só pelos engenheiros.
         </p>
       </div>
     </div>
@@ -171,7 +171,7 @@ const languages = [
     <div class="container">
       <div class="bio-grid">
         <div class="bio-label">
-          <p class="section-label">// Experience</p>
+          <p class="section-label">// Experiência</p>
         </div>
         <div class="experience-list">
           {experience.map(job => (
@@ -234,7 +234,7 @@ const languages = [
     <div class="container">
       <div class="bio-grid">
         <div class="bio-label">
-          <p class="section-label">// Education</p>
+          <p class="section-label">// Educação</p>
         </div>
         <div class="education-list">
           {education.map(item => (
@@ -259,7 +259,7 @@ const languages = [
     <div class="container">
       <div class="bio-grid">
         <div class="bio-label">
-          <p class="section-label">// Certifications</p>
+          <p class="section-label">// Certificações</p>
         </div>
         <div class="education-list">
           {certifications.map(cert => (
@@ -280,7 +280,7 @@ const languages = [
     <div class="container">
       <div class="bio-grid">
         <div class="bio-label">
-          <p class="section-label">// Publications</p>
+          <p class="section-label">// Publicações</p>
         </div>
         <div class="education-list">
           {publications.map(pub => (
@@ -305,7 +305,7 @@ const languages = [
     <div class="container">
       <div class="bio-grid">
         <div class="bio-label">
-          <p class="section-label">// Languages</p>
+          <p class="section-label">// Idiomas</p>
         </div>
         <div class="languages-list">
           {languages.map(lang => (
@@ -321,9 +321,9 @@ const languages = [
   <!-- CTA -->
   <section class="section">
     <div class="container" style="text-align:center;">
-      <h2>Let's build something.</h2>
-      <p style="color:var(--muted);margin: 1rem auto 2rem;">Available for data engineering and AI infrastructure projects.</p>
-      <a href="mailto:hello@thalespomari.dev" class="btn btn-accent">Get in Touch →</a>
+      <h2>Vamos construir algo.</h2>
+      <p style="color:var(--muted);margin: 1rem auto 2rem;">Disponível para projetos de engenharia de dados e infraestrutura de IA.</p>
+      <a href="mailto:hello@thalespomari.dev" class="btn btn-accent">Entrar em Contato →</a>
       <p style="color:var(--muted);font-family:var(--font-mono);font-size:0.8rem;margin-top:1.5rem;">Campinas, SP, Brazil</p>
     </div>
   </section>
